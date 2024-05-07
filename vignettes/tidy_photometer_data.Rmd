@@ -1,0 +1,328 @@
+---
+title: "Tidy photometer data with R package `microdiluteR`"
+author: "Silvia Eckert"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 4
+vignette: >
+  %\VignetteIndexEntry{Tidy photometer data with R package `microdiluteR`}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+<a id="toc"></a>
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+During my work as a postdoc in multiple labs, I experienced that old photometer devices are still in use even if corresponding proprietary software (e.g. being dependent on an outdated OS) is no longer available. This is a good sign from an ecological point of view (i.e. avoidance of electronic waste) but it’s more often rather a question of the laboratory’s financial resources. However, absorption values (e.g. in a 8 x 12 table format in plain text files for 96-well plates) returned from these devices are usually analyzed via a custom Excel sheet that someone created long ago and everyone relies on it. This might work since each photometer type provides their own file structure but Excel is a proprietary software itself, i.e. not easily available for everyone. Also, the steps are tedious for most cases because only some of the analyses can be carried out in it and only limited experimental designs are supported. In contrast, R is an established open-source statistical tool, so why not also use it as a tool to tidy photometer plate data, to flexibly adding experimental designs as metadata and even conduct at least some simple visualizations and statistical analyses, all in one go?
+
+![<b>A [96-well photometer plate](https://en.m.wikipedia.org/wiki/File:96-Well_plate.svg) is often used for broth microdilution assays.</b>](https://upload.wikimedia.org/wikipedia/commons/0/07/96-Well_plate.svg)
+
+The `microdiluteR` package is designed to help researchers tidy up data from photometer plates and provides functions to easily add metadata. Regardless of whether the user is processing a single plate or multiple plates with complex metadata structures, the `tidy_plates()` function provides flexibility and ease of use to optimize the data processing workflow. This vignette guides the user through a general workflow. For more specific use cases, please refer to upcoming vignettes of this package. The `microdiluteR` package was developed to support the analysis of [broth microdilution assays](https://en.wikipedia.org/wiki/Broth_microdilution), but may be extended for other types of assays in the future.
+
+
+## Installation
+
+After installing [R](https://www.r-project.org/), install the `microdiluteR` package either via CRAN or install the development version via GitHub using the following commands:
+
+```{r installation, eval = FALSE}
+# via CRAN
+install.packages("microdiluteR")
+# via GitHub
+install.packages("devtools")
+library(devtools)
+install_github("silvia-eckert/microdiluteR")
+```
+
+The `microdiluteR` package can be loaded as follows:
+
+```{r library, eval = TRUE}
+library(microdiluteR)
+```
+
+[Back to top](#toc)
+
+## Usage
+
+To show the general workflow, we will use example data shipped with the `microdiluteR` package. For use cases relying on real-world data, please check out upcoming vignettes. The example data used here is a list of multiple photometer measurements on 96-well plates.
+
+```{r data, eval = TRUE}
+data("bma")
+names(bma) # check file names
+bma[[1]] # absorption values from first plate
+```
+
+The data also contains information on the experimental setup, which can be retrieved using an attribute:
+
+```{r attributes, eval = TRUE}
+attr(bma, "metadata") # check out the experimental setup
+```
+
+We can see that the plate has been loaded in a horizontal direction (rows starting with A-H) denoted in the 'plate_axis' column. We can also see that there are four treatment levels (10%, 30%, 100%, and a negative control level), each being tested at two concentrations (100 ppm and 200 ppm). In the next step, we will try to add this metadata to the absorption values measured. You can also get details of the experimental setup using the help page of the data set:
+
+```{r help_page, eval = FALSE}
+?bma # check out details on the experimental setup
+```
+
+[Back to top](#toc)
+
+### Read plates
+
+Before we dive into the magic of the `tidy_plates()` function, let's first have a look at the `read_plate()` and `read_plates()` functions. If adding metadata is not desired and the photometer data should only be loaded into R for inspection or for custom analyses, this can be achieved as with the `read_plate()` and `read_plates()` functions. Let's first create a temporary mock file:
+
+```{r mock_file, eval = TRUE}
+data <- "Line with additional information, e.g. wavelength
+
+   1  2  3  4  5  6  7  8  9 10 11 12
+A  1  2  3  4  5  6  7  8  9 10 11 12
+B 13 14 15 16 17 18 19 20 21 22 23 24
+C 25 26 27 28 29 30 31 32 33 34 35 36
+D 37 38 39 40 41 42 43 44 45 46 47 48
+E 49 50 51 52 53 54 55 56 57 58 59 60
+F 61 62 63 64 65 66 67 68 69 70 71 72
+G 73 74 75 76 77 78 79 80 81 82 83 84
+H 85 86 87 88 89 90 91 92 93 94 95 96"
+file_path <- tempfile()
+writeLines(data, file_path, sep = "\n")
+```
+
+Now we'll read this file using `read_plate()` as follows:
+
+```{r read_plate, eval = TRUE}
+temp_file <- read_plate(file_path,
+                        skip_lines = 2) # skip the first two lines
+temp_file
+# The skipped lines are stored here
+attr(temp_file, "info")
+# Remove the temporary file
+unlink(file_path)
+```
+
+We could also do this with multiple files using the `read_plates()` function. The content of the files will be concatenated into a single list that is ready for further processing, e.g. with the `tidy_plates()` function. Let's again create two temporary files. This time, however, we will use a custom pattern called "Assay_" to start the file names. This will make sure that only these two files are considered from the temporary directory.
+
+```{r mock_files, eval = TRUE}
+# File 1
+data_T0 <- "Line with additional information, e.g. wavelength
+
+   1  2  3  4  5  6  7  8  9 10 11 12
+A  1  2  3  4  5  6  7  8  9 10 11 12
+B 13 14 15 16 17 18 19 20 21 22 23 24
+C 25 26 27 28 29 30 31 32 33 34 35 36
+D 37 38 39 40 41 42 43 44 45 46 47 48
+E 49 50 51 52 53 54 55 56 57 58 59 60
+F 61 62 63 64 65 66 67 68 69 70 71 72
+G 73 74 75 76 77 78 79 80 81 82 83 84
+H 85 86 87 88 89 90 91 92 93 94 95 96"
+file_path_T0 <- tempfile(pattern = "Assay_T0_",
+                         fileext = ".txt")
+writeLines(data_T0, file_path_T0, sep = "\n")
+# File 2
+data_T1 <- "Line with additional information, e.g. wavelength
+
+   1  2  3  4  5  6  7  8  9 10 11 12
+A  1  2  3  4  5  6  7  8  9 10 11 12
+B 13 14 15 16 17 18 19 20 21 22 23 24
+C 25 26 27 28 29 30 31 32 33 34 35 36
+D 37 38 39 40 41 42 43 44 45 46 47 48
+E 49 50 51 52 53 54 55 56 57 58 59 60
+F 61 62 63 64 65 66 67 68 69 70 71 72
+G 73 74 75 76 77 78 79 80 81 82 83 84
+H 85 86 87 88 89 90 91 92 93 94 95 96"
+file_path_T1 <- tempfile(pattern = "Assay_T1_",
+                         fileext = ".txt")
+writeLines(data_T1, file_path_T1, sep = "\n")
+file_dir <- dirname(file_path_T1)
+```
+
+Now we'll apply the `read_plates()` function similarly to `read_plate()` as follows:
+
+```{r read_plates_from_folder, eval = TRUE}
+temp_files <- read_plates(file_dir,
+                        pattern = "Assay_T", # our custom pattern
+                        skip_lines = 2) # skip the first two lines
+temp_files
+# Remove temporary files
+unlink(file_path_T0) 
+unlink(file_path_T1)
+```
+
+These functions are purely for inspection or for custom use. To add metadata, these function are not necessary and users can directly apply the `tidy_plates()` function on either single files, a folder pointing to single or multiple files (using custom patterns if necessary) or lists of photometer data already loaded into R (with `read_plate()`, `read_plates()` or any other function as long as as a list structure is preserved).
+
+[Back to top](#toc)
+
+### Tidy data from a single plate
+
+Tidying data from a single photometer plate is straightforward. Simply provide your input data to `tidy_plates()`, set the desired metadata and it will handle the rest. Your input data can be a file name, a folder pointing to this file (given there are no other interfering files, or else use a pattern) or a list element that has already been read into R. Here, we will use the first data set from `bma` and apply the metadata provided in the attributes:
+
+```{r tidy_plates_single1, eval = TRUE}
+single_plate_data <- bma[1]; single_plate_data
+tidy_df <- tidy_plates(single_plate_data,
+                       how_many = "single", # tidy single plate
+                       direction = "horizontal",
+                       group_ID = NA,
+                       experiment_name = NA,
+                       validity_method = "threshold",
+                       threshold = 1,
+                       treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
+                       concentration_levels = rep(c(100, 200), 4)) # numeric
+```
+
+We see that we could have also provided a group identifier or an experiment name. This was not necessary here, but we could update our code to denote e.g. the pathogen used as the test organism (here [ _Botrytis cinerea_ ](https://en.wikipedia.org/wiki/Botrytis_cinerea)) in the group identifier or give the plate measurement an experiment name (e.g. "Assay 1"). Let's do this:
+
+```{r tidy_plates_single2, eval = TRUE}
+tidy_df <- tidy_plates(single_plate_data,
+                       how_many = "single",
+                       direction = "horizontal",
+                       group_ID = "Botrytis cinerea", # add test organism
+                       experiment_name = "Assay 1", # add plate name
+                       validity_method = "threshold",
+                       threshold = 1,
+                       treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
+                       concentration_levels = rep(c(100, 200), 4))
+```
+
+The resulting tidy table looks as follows:
+
+```{r tidy_df, eval = TRUE}
+knitr::kable(head(tidy_df, 10))
+```
+
+We see that the timepoint was added automatically and we didn't have to specify it explicitely. That's because the timepoint was extracted from the file name 'bma_grp1_exp1_T0". The file name also contains 'bma', 'grp1' and 'exp1' as identifiers. This will become important in the next section when several plates are read.
+
+[Back to top](#toc)
+
+### Prepare file names
+
+The easiest way to prepare your files for use with the `tidy_plates()` function is to add a pattern at the beginning of the file names. Simply use the beginning of your file name and leave the rest of the file name unchanged to make sure you still know what your file is about. If we have a look at the file names of the `bma` dataset, we see that they have a specific pattern including 'grp1', 'grp2', 'exp1', 'exp2', as well as timepoints ('T0' and 'T1'). These patterns are necessary for `tidy_plates()` to correctly assign the group and experiment names. For example, we could have repeated the experiment from the above-mentioned plate called 'Assay 1' but used other concentrations or even other chemicals or antibiotics, now using 'Assay 2' as the experiment name for this plate. Additionally, we could also have repeated these experiments with another test organism, e.g. _Penicillium digitatum_ instead of _B. cinerea_. Adding plate data from measurements with this second test organism, we need to specify it in the group name.
+
+We would assign the identifier "grp1" to the files from experiments with _B. cinerea_, the identifier "grp2" to the files from experiments with _P. digitatum_ (and so on if there are experiments with other test organisms). The same applies, if there are multiple experiments with each of the test organisms, where "exp1" stands for the first set-up and "exp2" for the second set-up. As the plates are measured multiple times, a time point identifier is required, which is either T0 (T1, ...) or t0 (t1, ...). All files should have "BMA" or "bma" (which stands for 'broth microdilution assay' but a user-defined pattern such as "Assay_" is also fine) at the beginning of their name to distinguish them from other files located in the same folder.
+
+This may sound a bit tedious, as you have to partially rename your files, but it helps a lot to identify the different groups and experiments. Photometers often only provide cryptic file names, consisting of a combination of letters or a sequence of numbers or just the date of the measurement, so renaming is often necessary for the sake of clarity anyway. The following table illustrates an example of a renaming strategy:
+
+```{r renaming_strategy, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+renaming_files <- "
+| Original names | Renamed files              | Group        | Experiment  |
+|:---------------|:---------------------------|-------------:|------------:|
+| F0001.txt      | BMA_grp1_exp1_T0_F0001.txt | B. cinerea   | Fungizide A |
+| F0002.txt      | BMA_grp1_exp1_T1_F0002.txt | B. cinerea   | Fungizide A |
+| F0003.txt      | BMA_grp1_exp1_T2_F0003.txt | B. cinerea   | Fungizide A |
+| F0004.txt      | BMA_grp1_exp2_T0_F0004.txt | B. cinerea   | Fungizide B |
+| F0005.txt      | BMA_grp1_exp2_T1_F0005.txt | B. cinerea   | Fungizide B |
+| F0006.txt      | BMA_grp1_exp2_T2_F0006.txt | B. cinerea   | Fungizide B |
+| F0007.txt      | BMA_grp2_exp1_T0_F0007.txt | P. digitatum | Fungizide A |
+| F0008.txt      | BMA_grp2_exp1_T1_F0008.txt | P. digitatum | Fungizide A |
+| F0009.txt      | BMA_grp2_exp1_T2_F0009.txt | P. digitatum | Fungizide A |
+| F0010.txt      | BMA_grp2_exp3_T0_F0010.txt | P. digitatum | Fungizide C |
+| F0011.txt      | BMA_grp2_exp3_T1_F0011.txt | P. digitatum | Fungizide C |
+| F0012.txt      | BMA_grp2_exp3_T2_F0012.txt | P. digitatum | Fungizide C |
+
+"
+cat(renaming_files)
+```
+
+In our `bma` example data, we have the following file names:
+
+```{r, eval =TRUE }
+names(bma)
+```
+
+This means, we have two groups, and one experiment per group, but each experiment measured at timepoint T0 and T3.
+
+[Back to top](#toc)
+
+### Tidy data from multiple plates with a common experimental setup
+
+Since all measurements in `bma` were performed under a common treatment and concentration setting, we will apply this metadata all at once. In this case, we need to specify that we want to clean multiple plates.
+
+[Back to top](#toc)
+
+#### Tidy via function parameters
+
+The function `tidy_plates()` offers to options here to add metadata and it depends on the preference of the user which option feels more convenient. Users are free to add metadata either by parameters or via user prompts. At first, we will use parameters to do so:
+
+```{r tidy_dfs, eval = TRUE}
+multiple_plates_data <- bma
+tidy_dfs <- tidy_plates(
+  multiple_plates_data,
+  how_many = "multiple", # changed from "single"
+  direction = "horizontal",
+  group_ID = c("Botrytis cinerea", "P. digitatum"), # additional group added
+  experiment_name = c("Assay 1", "Assay 2"), # additional experiment added
+  validity_method = "threshold",
+  threshold = 1,
+  treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
+  concentration_levels = rep(c(100, 200), 4)
+  )
+```
+
+Let's have a look at the resulting table:
+
+```{r show_tidy_dfs, eval = TRUE}
+knitr::kable(head(tidy_dfs, 10))
+```
+
+Keep in mind that the naming strategy will be performed sequentially. This means that, for example, 'Assay 1' will be applied to identifier 'exp1'. But since only files of the second group, _P. digitatum_, contain 'exp1' as identifier, all experiments with _P. digitatum_ will be assigned to 'Assay 1' and all experiments with _B. cinerea_ will be assigned to 'Assay 2'.
+
+[Back to top](#toc)
+
+#### Tidy via user prompts
+
+Another way to add metadata is to prompt the user. In this way, each part, from the group name to the concentration level, is queried in turn.
+
+```{r tidy_dfs_prompts, eval = FALSE}
+tidy_dfs_prompts <- tidy_plates(
+  multiple_plates_data,
+  how_many = "multiple", # changed from "single"
+  user_prompt = T, # set user prompt option to TRUE
+  direction = "horizontal",
+  )
+```
+
+After processing with user prompts, you can check if both options give the same result once the same settings are used as input:
+
+```{r check_identical, eval = FALSE}
+identical(tidy_dfs, tidy_dfs_prompts) # should be TRUE
+```
+
+[Back to top](#toc)
+
+### Tidy data from multiple plates with different experimental setups
+
+What if it gets more complicated and each group or experiment (or both) has its own individual experimental set-up? But you still want them in a common table for further processing? Don't worry, `tidy_plates()` can handle that too. In that case, the user is prompted for the experimental setup as before but for every plate separately.
+
+```{r tidy_dfs_individually, eval = FALSE}
+tidy_dfs_individually <- tidy_plates(
+  multiple_plates_data,
+  how_many = "multiple",
+  user_prompt = T,
+  multiple_structures = T # set to TRUE to handle plates individually
+  direction = "horizontal",
+  )
+```
+
+[Back to top](#toc)
+
+## Further data processing options
+
+This vignette shows how to add metadata to photometer files in plain text format. However, this is certainly not where the analysis pipeline ends. The `microdiluteR` package has more to offer, but this will be covered in further vignettes in this R package:
+
+- Validation of samples using either thresholds or manually specifying invalid samples with the `validate_cells()` and `update_validity()` functions, which include visual inspection.
+- Usage of data cleaning with the `subtract_T0()` function.
+- Calculate and summarize growth performance across multiple timepoints via the `calculate_growth_performance()` and `summarize_growth_performance()` functions.
+- Applying the sign test to assess whether growth performance significantly differs from the baseline (usually the control) using the `apply_sign_test()` function.
+- Visualize your results, with or without sign test results in asterisk notation, using the `plot_growth_performance()` function.
+
+[Back to top](#toc)
+
+## Acknowledgements
+
+The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the [tidyverse](https://www.tidyverse.org/) network, the [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
+
+[Back to top](#toc)
