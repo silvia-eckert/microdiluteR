@@ -1,0 +1,212 @@
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX .
+Creating pdf output from LaTeX ...
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-04-11>
+
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (c:/Program Files/R/R-4.3.3/share/texmf/tex/latex/Rd.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/eucal.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file Rd2.aux.
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd)
+No file Rd2.toc.
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) [1{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Overfull \hbox (1.83925pt too wide) in paragraph at lines 97--101
+[]\T1/zi4/m/n/10 generate_concentration_list []\T1/ptm/m/n/10 checks if the length of []\T1/zi4/m/n/10 concentration_levels []\T1/ptm/m/n/10 matches the spec-
+[2]
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 115--118
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (6.93776pt too wide) in paragraph at lines 130--132
+[]\T1/zi4/m/n/10 generate_treatment_list []\T1/ptm/m/n/10 gen-er-ates a list of pro-vided treat-ment la-bels mapped to the user-specified
+[3]
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 190--193
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+[4]
+Overfull \hbox (11.32092pt too wide) in paragraph at lines 239--241
+[][][]\T1/zi4/m/n/10 calculate_growth_performance[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 summarize_growth_performance[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 plot_growth_performance[][][][]\T1/ptm/m/n/10 , 
+[5] [6]
+Overfull \hbox (93.45761pt too wide) in paragraph at lines 366--367
+[]\T1/ptm/m/n/10 A data frame con-tain-ing sum-ma-rized data, e.g. from func-tion call to []\T1/zi4/m/n/10 summarize_growth_performance[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (9.37846pt too wide) in paragraph at lines 384--385
+[]\T1/ptm/m/n/10 The col-umn con-tain-ing the ab-sorp-tion val-ues to be as-sessed via []\T1/zi4/m/n/10 apply_sign_test[]\T1/ptm/m/n/10 .
+[7] [8]
+Overfull \hbox (31.19785pt too wide) in paragraph at lines 480--482
+[]\T1/ptm/m/n/10 A data.frame con-tain-ing the in-put data, e.g. from a func-tion call to []\T1/zi4/m/n/10 tidy_single_plate[]\T1/ptm/m/n/10 ,
+[9] [10] [11] [12] [13]
+Overfull \hbox (90.90952pt too wide) in paragraph at lines 775--777
+[]\T1/ptm/m/n/10 Additional ar-gu-ments to be passed to [][][]\T1/zi4/m/n/10 read_plates[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 tidy_single_plate[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 tidy_plates_via_params[][][][]\T1/ptm/m/n/10 ,
+[14] [15]
+Overfull \hbox (33.83pt too wide) in paragraph at lines 850--855
+[]\T1/ptm/m/n/10 For all three func-tions, []\T1/zi4/m/n/10 tidy_single_plate[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 tidy_plates_via_params[]\T1/ptm/m/n/10 , and []\T1/zi4/m/n/10 tidy_plates_via_prompts[]\T1/ptm/m/n/10 ,
+[16] [17] [18] [19]
+Overfull \hbox (2.06712pt too wide) in paragraph at lines 1094--1096
+[]\T1/ptm/m/n/10 A thresh-old value used for de-ter-min-ing va-lid-ity. Only ap-plied if 'va-lid-ity_method
+
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 1133--1136
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+[20]
+No file Rd2.ind.
+[21] (./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (21 pages, 123263 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2024] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (90 entries accepted, 0 rejected).
+Sorting entries....done (632 comparisons).
+Generating output file Rd2.ind....done (133 lines written, 5 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-04-11>
+
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (c:/Program Files/R/R-4.3.3/share/texmf/tex/latex/Rd.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/eucal.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (./Rd2.aux) (./Rd2.out) (./Rd2.out) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd)) [1{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Overfull \hbox (1.83925pt too wide) in paragraph at lines 97--101
+[]\T1/zi4/m/n/10 generate_concentration_list []\T1/ptm/m/n/10 checks if the length of []\T1/zi4/m/n/10 concentration_levels []\T1/ptm/m/n/10 matches the spec-
+[2]
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 115--118
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (6.93776pt too wide) in paragraph at lines 130--132
+[]\T1/zi4/m/n/10 generate_treatment_list []\T1/ptm/m/n/10 gen-er-ates a list of pro-vided treat-ment la-bels mapped to the user-specified
+[3]
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 190--193
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+[4]
+Overfull \hbox (11.32092pt too wide) in paragraph at lines 239--241
+[][][]\T1/zi4/m/n/10 calculate_growth_performance[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 summarize_growth_performance[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 plot_growth_performance[][][][]\T1/ptm/m/n/10 , 
+[5] [6]
+Overfull \hbox (93.45761pt too wide) in paragraph at lines 366--367
+[]\T1/ptm/m/n/10 A data frame con-tain-ing sum-ma-rized data, e.g. from func-tion call to []\T1/zi4/m/n/10 summarize_growth_performance[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (9.37846pt too wide) in paragraph at lines 384--385
+[]\T1/ptm/m/n/10 The col-umn con-tain-ing the ab-sorp-tion val-ues to be as-sessed via []\T1/zi4/m/n/10 apply_sign_test[]\T1/ptm/m/n/10 .
+[7] [8]
+Overfull \hbox (31.19785pt too wide) in paragraph at lines 480--482
+[]\T1/ptm/m/n/10 A data.frame con-tain-ing the in-put data, e.g. from a func-tion call to []\T1/zi4/m/n/10 tidy_single_plate[]\T1/ptm/m/n/10 ,
+[9] [10] [11] [12] [13]
+Overfull \hbox (90.90952pt too wide) in paragraph at lines 775--777
+[]\T1/ptm/m/n/10 Additional ar-gu-ments to be passed to [][][]\T1/zi4/m/n/10 read_plates[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 tidy_single_plate[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 tidy_plates_via_params[][][][]\T1/ptm/m/n/10 ,
+[14] [15]
+Overfull \hbox (33.83pt too wide) in paragraph at lines 850--855
+[]\T1/ptm/m/n/10 For all three func-tions, []\T1/zi4/m/n/10 tidy_single_plate[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 tidy_plates_via_params[]\T1/ptm/m/n/10 , and []\T1/zi4/m/n/10 tidy_plates_via_prompts[]\T1/ptm/m/n/10 ,
+[16] [17] [18] [19]
+Overfull \hbox (2.06712pt too wide) in paragraph at lines 1094--1096
+[]\T1/ptm/m/n/10 A thresh-old value used for de-ter-min-ing va-lid-ity. Only ap-plied if 'va-lid-ity_method
+
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 1133--1136
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+[20] (./Rd2.ind [21]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 17.
+
+[22]) (./Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (22 pages, 138840 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2024] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (90 entries accepted, 0 rejected).
+Sorting entries....done (632 comparisons).
+Generating output file Rd2.ind....done (133 lines written, 5 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-04-11>
+
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (c:/Program Files/R/R-4.3.3/share/texmf/tex/latex/Rd.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/eucal.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (./Rd2.aux) (./Rd2.out) (./Rd2.out) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) [1{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]) [2]
+Overfull \hbox (1.83925pt too wide) in paragraph at lines 97--101
+[]\T1/zi4/m/n/10 generate_concentration_list []\T1/ptm/m/n/10 checks if the length of []\T1/zi4/m/n/10 concentration_levels []\T1/ptm/m/n/10 matches the spec-
+
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 115--118
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+
+Overfull \hbox (6.93776pt too wide) in paragraph at lines 130--132
+[]\T1/zi4/m/n/10 generate_treatment_list []\T1/ptm/m/n/10 gen-er-ates a list of pro-vided treat-ment la-bels mapped to the user-specified
+[3]
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 190--193
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+[4]
+Overfull \hbox (11.32092pt too wide) in paragraph at lines 239--241
+[][][]\T1/zi4/m/n/10 calculate_growth_performance[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 summarize_growth_performance[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 plot_growth_performance[][][][]\T1/ptm/m/n/10 , 
+[5] [6] [7]
+Overfull \hbox (93.45761pt too wide) in paragraph at lines 366--367
+[]\T1/ptm/m/n/10 A data frame con-tain-ing sum-ma-rized data, e.g. from func-tion call to []\T1/zi4/m/n/10 summarize_growth_performance[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (9.37846pt too wide) in paragraph at lines 384--385
+[]\T1/ptm/m/n/10 The col-umn con-tain-ing the ab-sorp-tion val-ues to be as-sessed via []\T1/zi4/m/n/10 apply_sign_test[]\T1/ptm/m/n/10 .
+[8] [9]
+Overfull \hbox (31.19785pt too wide) in paragraph at lines 480--482
+[]\T1/ptm/m/n/10 A data.frame con-tain-ing the in-put data, e.g. from a func-tion call to []\T1/zi4/m/n/10 tidy_single_plate[]\T1/ptm/m/n/10 ,
+[10] [11] [12] [13] [14]
+Overfull \hbox (90.90952pt too wide) in paragraph at lines 775--777
+[]\T1/ptm/m/n/10 Additional ar-gu-ments to be passed to [][][]\T1/zi4/m/n/10 read_plates[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 tidy_single_plate[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 tidy_plates_via_params[][][][]\T1/ptm/m/n/10 ,
+[15]
+Overfull \hbox (33.83pt too wide) in paragraph at lines 850--855
+[]\T1/ptm/m/n/10 For all three func-tions, []\T1/zi4/m/n/10 tidy_single_plate[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 tidy_plates_via_params[]\T1/ptm/m/n/10 , and []\T1/zi4/m/n/10 tidy_plates_via_prompts[]\T1/ptm/m/n/10 ,
+[16] [17] [18] [19]
+Overfull \hbox (2.06712pt too wide) in paragraph at lines 1094--1096
+[]\T1/ptm/m/n/10 A thresh-old value used for de-ter-min-ing va-lid-ity. Only ap-plied if 'va-lid-ity_method
+[20]
+Overfull \hbox (0.84094pt too wide) in paragraph at lines 1133--1136
+[][][]\T1/zi4/m/n/10 generate_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_experiment_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 generate_group_list[][][][]\T1/ptm/m/n/10 , [][][]\T1/zi4/m/n/10 ask_group_list[][][][]\T1/ptm/m/n/10 ,
+(./Rd2.ind [21]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 17.
+
+[22]) (./Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)<c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Silvia/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (22 pages, 138651 bytes).
+Transcript written on Rd2.log.
+Saving output to 'microdiluteR-manual.pdf' ...
+Done
+You may want to clean up by 'rm -Rf C:/Users/Silvia/AppData/Local/Temp/RtmpC0UG4N/Rd2pdf310c281f1c70'

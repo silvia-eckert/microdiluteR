@@ -6,7 +6,7 @@ test_that("plot_growth_performance() produces expected output", {
                                each = length(1:12)), "-",
                            rep(1:12,
                                times = length(LETTERS[1:8]))),
-    Value = c(1:12, -13:-24, 25:96),
+    Value = 1:96,
     Validity = c("valid", rep("invalid", 95)),
     Treatment = rep(LETTERS[1:8], each = 12),
     Concentration = rep(seq(from = 80, to = 10,
@@ -22,7 +22,7 @@ test_that("plot_growth_performance() produces expected output", {
     Treatment = LETTERS[1:8],
     Concentration = c(80,70,60,50,40,30,20,10),
     Timepoint = "T0",
-    mean = c(6.5, -18.5, 30.5, 42.5, 54.5, 66.5, 78.5, 90.5),
+    mean = c(6.5, 18.5, 30.5, 42.5, 54.5, 66.5, 78.5, 90.5),
     stderr = 1.04
   ))
   

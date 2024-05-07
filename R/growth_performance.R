@@ -188,7 +188,7 @@ summarize_growth_performance <- function(input_data,
 #' @importFrom ggthemes theme_base
 #' @importFrom ggh4x facet_nested
 #' @importFrom grid unit
-#' @importFrom rlang ensyms sym
+#' @importFrom rlang ensyms sym .data
 #' @rdname calculate_growth_performance
 #' @export
 plot_growth_performance <- function(input_data,
@@ -249,27 +249,31 @@ plot_growth_performance <- function(input_data,
     y_lab
   }
   
-  # Replace NA values in stderr with zero
+  # Replace NA values in stderr with zero for plotting convenience
   data$stderr[is.na(data$stderr)] <- 0
   
-  # Visualize data
-  ggplot(data,
-         aes(x = !!sym(x_var),
-             y = !!sym(y_var),
-             fill = factor(!!sym(fill_var)))) +
-    facet_nested(facet_formula) +
-    geom_bar(stat = "identity",
-             width=.6,
-             color="black",
-             position = position_dodge()) +
-    geom_errorbar(aes(ymin = mean - stderr, ymax = mean + stderr),
-                  position = position_dodge(width = 0.6), width = 0.25) +
-    geom_text(aes(label = !!sym(p_values),
-                  y = ifelse(!!sym(y_var) < 0,
-                             !!sym(y_var) - !!sym(error_var) - 20,
-                             !!sym(y_var) + !!sym(error_var) + 20)),
-              vjust = ifelse(!!sym(y_var) < 0, -0.5, 0.5),
-              position = position_dodge(width = 0.6)) +
+  # Extract y_values for evaluation in geom_text
+  modified_data <- data %>%
+    mutate(y_label_pos = ifelse(.data[[y_var]] < 0,
+                                .data[[y_var]] - .data[[error_var]] - 20,
+                                .data[[y_var]] + .data[[error_var]] + 20))
+  
+  # Visualize data 
+    ggplot(modified_data,
+           aes(x = !!sym(x_var),
+               y = !!sym(y_var),
+               fill = factor(!!sym(fill_var)))) +
+      facet_nested(facet_formula) +
+      geom_bar(stat = "identity",
+               width=.6,
+               color="black",
+               position = position_dodge()) +
+      geom_errorbar(aes(ymin = mean - stderr, ymax = mean + stderr),
+                    position = position_dodge(width = 0.6), width = 0.25) +
+      geom_text(aes(label = !!sym(p_values),
+                y = .data$y_label_pos,
+                vjust = ifelse(y_var < 0, -0.5, 0.5)),
+                position = position_dodge(width = 0.6)) +
     labs(x = x_lab,
          y = y_lab,
          fill = fill_var) +

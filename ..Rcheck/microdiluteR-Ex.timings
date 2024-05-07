@@ -1,0 +1,6 @@
+name	user	system	elapsed
+bma	0.00	0.01	0.02	
+check_well_positions	0.56	0.02	0.57	
+tidy_plates_via_params	0.25	0.03	0.28	
+tidy_single_plate	0.09	0.01	0.10	
+validate_cells	0	0	0	
