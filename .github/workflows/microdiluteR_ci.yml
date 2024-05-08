@@ -1,4 +1,4 @@
-name: R-CI
+name: microdiluteR_ci
 
 on:
   push:
