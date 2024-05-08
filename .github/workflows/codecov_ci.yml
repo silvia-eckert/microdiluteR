@@ -25,12 +25,6 @@ jobs:
       with:
         cache-version: 2
         extra-packages: local::. any::covr
-          car=?ignore broom=?ignore carData=?ignore colorspace=?ignore
-          corrplot=?ignore cpp11=?ignore diffobj=?ignore
-          farver=?ignore fotawesome=?ignore fs=?ignore jquerylib=?ignore
-          lme4=?ignore nloptr=?ignore quantreg=?ignore
-          Rcpp=?ignore RcppEigen=?ignore sass=?ignore SparseM=?ignore
-          viridisLite=?ignore
         needs: coverage
     
     - name: Test coverage
