@@ -23,6 +23,8 @@ regardless of whether the user is processing a single plate or multiple
 plates with complex metadata structures. This package was developed with
 a special focus on the analysis of [broth microdilution
 assays](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/broth-dilution).
+A detailed tutorial can be found on this
+[page](https://silvia-eckert.github.io/microdiluteR/).
 
 ## :floppy_disk: Installation
 
