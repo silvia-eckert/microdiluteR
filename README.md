@@ -4,6 +4,8 @@
 # microdiluteR: analyze broth microdilution assays in R
 
 ![](https://img.shields.io/badge/R%20CMD%20check-pending-purple.svg)
+[![codecov](https://codecov.io/gh/silvia-eckert/microdiluteR/graph/badge.svg?token=5K4A0M73W1)](https://codecov.io/gh/silvia-eckert/microdiluteR)
+
 [![Say
 Thanks](https://img.shields.io/badge/Thanks-message?label=Say&labelColor=%234b4b4b&color=%23ebfc03&link=https%3A%2F%2Fsaythanks.io%2Fto%2Fsilvia-eckert)](https://saythanks.io/to/silvia-eckert)
 
