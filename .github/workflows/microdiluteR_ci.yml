@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         R -e 'install.packages("remotes")'
-        R -e 'remotes::install_deps(dependencies = "Depends")'
+        R -e 'remotes::install_deps(dependencies = c("Imports","Suggests"))'
 
     - name: Run testthat
       run: Rscript './tests/testthat.R'
