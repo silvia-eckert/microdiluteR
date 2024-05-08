@@ -8,12 +8,12 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/README-",
+  fig.path = "inst/images/",
   out.width = "100%"
 )
 ```
 
-# microdiluteR: analyze broth microdilution assays in R
+# microdiluteR <img src="inst/images/logo.png" align="right" alt="" width="120" />
 ![GitHub R package version](https://img.shields.io/github/r-package/v/silvia-eckert/microdiluteR)
 ![GitHub License](https://img.shields.io/github/license/silvia-eckert/microdiluteR)
 [![R CMD check](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck.yml/badge.svg)](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck.yml)
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 ## :notebook: Background
 
-The `microdiluteR` package is designed to help researchers tidy up data from photometer plates and provides functions to easily add metadata, regardless of whether the user is processing a single plate or multiple plates with complex metadata structures.
+The `microdiluteR` package is designed to help researchers tidy up data from photometer plates and provides functions to easily add metadata, regardless of whether the user is processing a single plate or multiple plates with complex metadata structures. This package was developed with a special focus on the analysis of [broth microdilution assays](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/broth-dilution).
 
 ## :floppy_disk: Installation
 
