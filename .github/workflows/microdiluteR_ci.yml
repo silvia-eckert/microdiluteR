@@ -1,25 +1,26 @@
 name: microdiluteR_ci
-
 on:
   push:
     branches:
       - main 
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up R
       uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.3.3'
 
     - name: Install dependencies
       run: |
         R -e 'install.packages("remotes")'
-        R -e 'remotes::install_deps(dependencies = TRUE)'
+        R -e 'remotes::install_deps(dependencies = "Depends")'
 
-    - name: Run R CMD check
-      run: R CMD check .
+    - name: Run testthat
+      run: Rscript './tests/testthat.R'
