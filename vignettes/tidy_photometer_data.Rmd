@@ -1,5 +1,5 @@
 ---
-title: "Tidy photometer data with R package `microdiluteR`"
+title: "Tidy photometer data with `tidy_plates()`"
 author: "Silvia Eckert"
 date: "`r Sys.Date()`"
 output:
@@ -7,7 +7,7 @@ output:
     toc: true
     toc_depth: 4
 vignette: >
-  %\VignetteIndexEntry{Tidy photometer data with R package `microdiluteR`}
+  %\VignetteIndexEntry{Tidy photometer data with `tidy_plates()`}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

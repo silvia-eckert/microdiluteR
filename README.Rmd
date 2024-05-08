@@ -8,12 +8,12 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "inst/images/",
+  fig.path = "man/figures/",
   out.width = "100%"
 )
 ```
 
-# microdiluteR <img src="inst/images/logo.png" align="right" alt="" width="140" />
+# microdiluteR <img src="man/figures/logo.png" align="right" alt="" width="140" />
 ![GitHub R package version](https://img.shields.io/github/r-package/v/silvia-eckert/microdiluteR)
 ![GitHub License](https://img.shields.io/github/license/silvia-eckert/microdiluteR)
 [![R CMD check](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck.yml/badge.svg)](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck.yml)
@@ -40,8 +40,36 @@ devtools::install_github("silvia-eckert/microdiluteR")
 
 You can load `microdiluteR` as follows:
 
-```{r example}
+```{r library}
 library(microdiluteR)
 ```
 
+Let's try out the main function `tidy_plates()` with example data:
+```{r data}
+data(bma)
+bma[1] # file name is bma_grp1_exp2_T0
+```
+
+For the example data, the corresponding metadata is stored as an attribute:
+```{r attribute}
+attr(bma, "metadata")
+```
+
+Let's add the metadata and create a tidy data frame for further processing:
+```{r function}
+tidy_data <- tidy_plates(bma[1],
+                         how_many = "single",
+                         direction = "horizontal",
+                         validity_method = "threshold",
+                         threshold = 0.36, # all values above 0.36 are rendered invalid
+                         group_ID = "Group 1", # optional
+                         experiment_name = "Experiment A", # optional
+                         treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
+                         concentration_levels = rep(c(100,200), times = 4))
+```
+
+This is the resulting table:
+```{r}
+knitr::kable(head(tidy_data, 10))
+```
 
