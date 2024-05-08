@@ -1,4 +1,4 @@
-name: codecov_ci
+name: R CMD check
 on:
   push:
     branches:  [main]
@@ -24,15 +24,10 @@ jobs:
     - name: Install dependencies
       uses: r-lib/actions/setup-r-dependencies@v2
       with:
-        cache-version: 2
-        extra-packages: local::. any::covr
-        needs: coverage
-    
-    - name: Test coverage
-      run: covr::codecov(quiet = FALSE)
-      shell: Rscript {0}
+        extra-packages: any::rcmdcheck
+        needs: check
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4.0.1
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    - name: R CMD check
+      uses: r-lib/actions/check-r-package@v2
+      with:
+        upload-snapshots: true
