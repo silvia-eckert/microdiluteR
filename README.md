@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# microdiluteR: analyze broth microdilution assays in R
+# microdiluteR <img src="inst/images/logo.png" align="right" alt="" width="140" />
 
 ![GitHub R package
 version](https://img.shields.io/github/r-package/v/silvia-eckert/microdiluteR)
@@ -20,7 +20,9 @@ Thanks](https://img.shields.io/badge/Thanks-message?label=Say&labelColor=%234b4b
 The `microdiluteR` package is designed to help researchers tidy up data
 from photometer plates and provides functions to easily add metadata,
 regardless of whether the user is processing a single plate or multiple
-plates with complex metadata structures.
+plates with complex metadata structures. This package was developed with
+a special focus on the analysis of [broth microdilution
+assays](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/broth-dilution).
 
 ## :floppy_disk: Installation
 
