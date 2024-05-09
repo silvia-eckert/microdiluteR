@@ -66,7 +66,7 @@ tidy_data <- tidy_plates(bma[1],
                          group_ID = "Group 1", # optional
                          experiment_name = "Experiment A", # optional
                          treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
-                          concentration_levels = rep(c(100,200), times = 4)) #%>% 
+                         concentration_levels = rep(c(100,200), times = 4)) #%>% 
   # dplyr::rename(Pos = Position,
   #               Val = Value,
   #               Treat = Treatment,
