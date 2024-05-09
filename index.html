@@ -141,7 +141,7 @@
 <span>                Treat <span class="op">=</span> <span class="va">Treatment</span>,</span>
 <span>                Conc <span class="op">=</span> <span class="va">Concentration</span>,</span>
 <span>                TP <span class="op">=</span> <span class="va">Timepoint</span><span class="op">)</span> <span class="co"># rename some columns for convenience</span></span></code></pre></div>
-<p>This is a snippet of the resulting table…</p>
+<p>This is the resulting table:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tidy_data</span></span>
 <span><span class="co">#&gt; # A tibble: 96 × 9</span></span>
@@ -158,19 +158,6 @@
 <span><span class="co">#&gt;  9 A-9   0.356 invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A</span></span>
 <span><span class="co">#&gt; 10 A-10  0.351 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A</span></span>
 <span><span class="co">#&gt; # ℹ 86 more rows</span></span></code></pre></div>
-<p>… and the table structure:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">tidy_data</span><span class="op">)</span></span>
-<span><span class="co">#&gt; tibble [96 × 9] (S3: tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">#&gt;  $ Pos       : chr [1:96] "A-1" "A-2" "A-3" "A-4" ...</span></span>
-<span><span class="co">#&gt;  $ Val       : num [1:96] 0.342 0.354 0.36 0.36 0.352 0.363 0.361 0.352 0.356 0.351 ...</span></span>
-<span><span class="co">#&gt;  $ Validity  : chr [1:96] "valid" "valid" "invalid" "invalid" ...</span></span>
-<span><span class="co">#&gt;  $ Treat     : chr [1:96] "10%" "10%" "10%" "10%" ...</span></span>
-<span><span class="co">#&gt;  $ Conc      : num [1:96] 100 100 100 100 100 100 100 100 100 100 ...</span></span>
-<span><span class="co">#&gt;  $ TP        : chr [1:96] "T0" "T0" "T0" "T0" ...</span></span>
-<span><span class="co">#&gt;  $ File      : chr [1:96] "bma_grp1_exp2_T0" "bma_grp1_exp2_T0" "bma_grp1_exp2_T0" "bma_grp1_exp2_T0" ...</span></span>
-<span><span class="co">#&gt;  $ Group     : chr [1:96] "Group 1" "Group 1" "Group 1" "Group 1" ...</span></span>
-<span><span class="co">#&gt;  $ Experiment: chr [1:96] "Experiment A" "Experiment A" "Experiment A" "Experiment A" ...</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
