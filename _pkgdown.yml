@@ -1,10 +1,5 @@
 url: https://silvia-eckert.github.io/microdiluteR/
+
 template:
+  package: tidytemplate
   bootstrap: 5
-
-articles:
-- title: Get started
-  navbar: ~
-  contents:
-  - tidy_photometer_data
-
