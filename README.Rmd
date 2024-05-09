@@ -44,7 +44,6 @@ You can load `microdiluteR` as follows:
 
 ```{r library}
 library(microdiluteR)
-library(dplyr)
 ```
 
 Let's try out the main function `tidy_plates()` with example data:
@@ -68,12 +67,15 @@ tidy_data <- tidy_plates(bma[1],
                          group_ID = "Group 1", # optional
                          experiment_name = "Experiment A", # optional
                          treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
-                         concentration_levels = rep(c(100,200), times = 4)) %>% 
-  dplyr::rename(Pos = Position,
-                Val = Value,
-                Treat = Treatment,
-                Conc = Concentration,
-                TP = Timepoint) # rename some columns for convenience
+                         concentration_levels = rep(c(100,200), times = 4))
+
+# Let's rename some columns for convenience
+tidy_data <- dplyr::rename(tidy_data,
+                           Pos = Position,
+                           Val = Value,
+                           Treat = Treatment,
+                           Conc = Concentration,
+                           TP = Timepoint)
 ```
 
 This is the resulting table:
