@@ -13,9 +13,13 @@ knitr::opts_chunk$set(
 library(microdiluteR)
 ```
 
-## Title 1
+# First title
 This is a test.
 
-### Title 2
+
+## Second title
+This is another test.
+
+### Third title
 
 Lorem ipsum.
