@@ -1,0 +1,21 @@
+---
+title: "test"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, eval = FALSE}
+library(microdiluteR)
+```
+
+## Title 1
+This is a test.
+
+### Title 2
+
+Lorem ipsum.
