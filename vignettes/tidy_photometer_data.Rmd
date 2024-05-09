@@ -21,12 +21,12 @@ knitr::opts_chunk$set(
 
 During my work as a postdoc in various laboratories, I experienced that old photometer devices are still in use, even if the associated proprietary software (e.g. depending on an outdated operating system) is no longer available. This is a good sign from an environmental point of view (e.g. avoiding electronic waste), but is often more a question of the laboratory's financial resources. However, the absorption values provided by these devices (e.g. in an 8 x 12 table format in simple text files for 96-well plates) are usually analysed via a custom Excel spreadsheet that someone created a long time ago and that everyone relies on. This may work, as each type of photometer has its own file structure, but Excel is itself proprietary software, i.e. not easily accessible to everyone. Also, the steps are tedious in most cases as only some of the analyses can be performed in it and only limited experimental designs are supported. In contrast, R is an established open source statistics software. So why not also use it as a tool to organize photometer plate data, flexibly add experimental designs as metadata and even perform at least some simple visualizations and statistical analyses, all in one go?
 
-![<b>A [96-well photometer plate](https://en.m.wikipedia.org/wiki/File:96-Well_plate.svg) is often used for broth microdilution assays.</b>](https://upload.wikimedia.org/wikipedia/commons/0/07/96-Well_plate.svg)
+![<b>A [96-well photometer plate](https://upload.wikimedia.org/wikipedia/commons/0/07/96-Well_plate.svg) is often used for broth microdilution assays.</b>](https://upload.wikimedia.org/wikipedia/commons/0/07/96-Well_plate.svg)
 
 The `microdiluteR` package is designed to help researchers tidy up data from photometer plates and provides functions to easily add metadata. Regardless of whether the user is processing a single plate or multiple plates with complex metadata structures, the `tidy_plates()` function provides flexibility and ease of use to optimize the data processing workflow. This vignette guides the user through a general workflow. For more specific use cases, please refer to upcoming vignettes of this package. The `microdiluteR` package was developed to support the analysis of [broth microdilution assays](https://en.wikipedia.org/wiki/Broth_microdilution), but may be extended for other types of assays in the future.
 
 
-# Installation
+## Installation
 
 After installing [R](https://www.r-project.org/), install the `microdiluteR` package either via CRAN or install the development version via GitHub using the following commands:
 
@@ -47,7 +47,7 @@ library(microdiluteR)
 
 [Back to top](#toc)
 
-# Usage
+## Usage
 
 To show the general workflow, we will use example data shipped with the `microdiluteR` package. For use cases relying on real-world data, please check out upcoming vignettes. The example data used here is a list of multiple photometer measurements on 96-well plates.
 
@@ -71,7 +71,7 @@ We can see that the plate has been loaded in a horizontal direction (rows starti
 
 [Back to top](#toc)
 
-## Read plates
+### Read plates
 
 Before we dive into the magic of the `tidy_plates()` function, let's first have a look at the `read_plate()` and `read_plates()` functions. If adding metadata is not desired and the photometer data should only be loaded into R for inspection or for custom analyses, this can be achieved as with the `read_plate()` and `read_plates()` functions. Let's first create a temporary mock file:
 
@@ -155,7 +155,7 @@ These functions are purely for inspection or for custom use. To add metadata, th
 
 [Back to top](#toc)
 
-## Tidy data from a single plate
+### Tidy data from a single plate
 
 Tidying data from a single photometer plate is straightforward. Simply provide your input data to `tidy_plates()`, set the desired metadata and it will handle the rest. Your input data can be a file name, a folder pointing to this file (given there are no other interfering files, or else use a pattern) or a list element that has already been read into R. Here, we will use the first data set from `bma` and apply the metadata provided in the attributes:
 
@@ -196,7 +196,7 @@ We see that the timepoint was added automatically and we didn't have to specify 
 
 [Back to top](#toc)
 
-## Prepare file names
+### Prepare file names
 
 The easiest way to prepare your files for use with the `tidy_plates()` function is to add a pattern at the beginning of the file names. Simply use the beginning of your file name and leave the rest of the file name unchanged to make sure you still know what your file is about. If we have a look at the file names of the `bma` dataset, we see that they have a specific pattern including 'grp1', 'grp2', 'exp1', 'exp2', as well as timepoints ('T0' and 'T1'). These patterns are necessary for `tidy_plates()` to correctly assign the group and experiment names. For example, we could have repeated the experiment from the above-mentioned plate called 'Assay 1' but used other concentrations or even other chemicals or antibiotics, now using 'Assay 2' as the experiment name for this plate. Additionally, we could also have repeated these experiments with another test organism, e.g. _Penicillium digitatum_ instead of _B. cinerea_. Adding plate data from measurements with this second test organism, we need to specify it in the group name.
 
@@ -235,13 +235,13 @@ This means, we have two groups, and one experiment per group, but each experimen
 
 [Back to top](#toc)
 
-## Tidy data from multiple plates with a common experimental setup
+### Tidy data from multiple plates with a common experimental setup
 
 Since all measurements in `bma` were performed under a common treatment and concentration setting, we will apply this metadata all at once. In this case, we need to specify that we want to clean multiple plates.
 
 [Back to top](#toc)
 
-### Tidy via function parameters
+#### Tidy via function parameters
 
 The function `tidy_plates()` offers to options here to add metadata and it depends on the preference of the user which option feels more convenient. Users are free to add metadata either by parameters or via user prompts. At first, we will use parameters to do so:
 
@@ -270,7 +270,7 @@ Keep in mind that the naming strategy will be performed sequentially. This means
 
 [Back to top](#toc)
 
-### Tidy via user prompts
+#### Tidy via user prompts
 
 Another way to add metadata is to prompt the user. In this way, each part, from the group name to the concentration level, is queried in turn.
 
@@ -291,7 +291,7 @@ identical(tidy_dfs, tidy_dfs_prompts) # should be TRUE
 
 [Back to top](#toc)
 
-## Tidy data from multiple plates with different experimental setups
+### Tidy data from multiple plates with different experimental setups
 
 What if it gets more complicated and each group or experiment (or both) has its own individual experimental set-up? But you still want them in a common table for further processing? Don't worry, `tidy_plates()` can handle that too. In that case, the user is prompted for the experimental setup as before but for every plate separately.
 
@@ -307,7 +307,7 @@ tidy_dfs_individually <- tidy_plates(
 
 [Back to top](#toc)
 
-# Further data processing options
+## Further data processing options
 
 This vignette shows how to add metadata to photometer files in plain text format. However, this is certainly not where the analysis pipeline ends. The `microdiluteR` package has more to offer, but this will be covered in further vignettes in this R package:
 
@@ -319,7 +319,7 @@ This vignette shows how to add metadata to photometer files in plain text format
 
 [Back to top](#toc)
 
-# Acknowledgements
+## Acknowledgements
 
 The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the [tidyverse](https://www.tidyverse.org/) network, the [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
 
