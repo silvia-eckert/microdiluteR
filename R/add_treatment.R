@@ -14,9 +14,9 @@
 #' @export
 add_treatment <- function(input_data,
                           treatment_list = NULL,
-                          ask_treatment_list = T,
+                          ask_treatment_list = TRUE,
                           ...) {
-  if (ask_treatment_list == T) {
+  if (ask_treatment_list == TRUE) {
     treatment_list <- ask_treatment_list(...)
   } else {
     treatment_list = treatment_list

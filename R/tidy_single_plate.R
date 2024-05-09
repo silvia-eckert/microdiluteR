@@ -92,10 +92,10 @@ tidy_single_plate <- function(input_data,
   tidy_data <- validate_cells(raw_data[[1]], row_names, col_names, validity_method, threshold, invalid_samples)
   
   # Add treatment information
-  tidy_data <- add_treatment(tidy_data, treatment_list, ask_treatment_list = F)
+  tidy_data <- add_treatment(tidy_data, treatment_list, ask_treatment_list = FALSE)
   
   # Add concentration information
-  tidy_data <- add_concentration(tidy_data, concentration_list, ask_concentration_list = F)
+  tidy_data <- add_concentration(tidy_data, concentration_list, ask_concentration_list = FALSE)
   
   # Extract file name, time points and experiment identifier from file name
   timepoint <- str_extract(names(raw_data), regex("[tT][0-9]"))

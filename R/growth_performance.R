@@ -25,8 +25,8 @@
 #' \code{\link{tidy_single_plate}}, \code{\link{tidy_plates_via_params}}, \code{\link{tidy_plates_via_prompts}}
 #' @export
 calculate_growth_performance <- function(input_data,
-                                         treatment_grouping=F,
-                                         concentration_grouping = F,
+                                         treatment_grouping = FALSE,
+                                         concentration_grouping = FALSE,
                                          group = "Group",
                                          experiment = "Experiment",
                                          treatment = "Treatment",
@@ -125,7 +125,7 @@ calculate_percentage_change <- function(input, reference) {
 #' @rdname calculate_growth_performance
 #' @export
 summarize_growth_performance <- function(input_data,
-                                         compute_sd = F,
+                                         compute_sd = FALSE,
                                          grouping = c("Group", "Treatment", "Concentration", "Timepoint"),
                                          treatment = "Treatment",
                                          value = "Value") {
@@ -195,7 +195,7 @@ plot_growth_performance <- function(input_data,
                                     stats_data = NULL,
                                     level_unit = NULL,
                                     treatment_order = NULL,
-                                    apply_sign_test = F,
+                                    apply_sign_test = FALSE,
                                     grouping = NULL,
                                     x_var = "Treatment",
                                     y_var = "mean",
@@ -278,8 +278,8 @@ plot_growth_performance <- function(input_data,
          y = y_lab,
          fill = fill_var) +
     geom_hline(yintercept = 0) +
-    scale_y_continuous(limits = c(min(data[, y_var], na.rm = T)-50,
-                                max(data[, y_var], na.rm = T)+100)) +
+    scale_y_continuous(limits = c(min(data[, y_var], na.rm = TRUE)-50,
+                                max(data[, y_var], na.rm = TRUE)+100)) +
     scale_x_discrete(limits = treatment_order) +
     scale_fill_manual(values = level_colors,
                       labels = ~paste(.x, level_unit)) +

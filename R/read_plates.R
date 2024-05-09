@@ -27,7 +27,7 @@ read_plates <- function(input_data,
     # If input_data is folder path, then read contained files into list of data frames
     file_list <- list.files(path = input_data,
                             pattern = pattern,
-                            full.names = T)
+                            full.names = TRUE)
 
     # Read files and save attributes
     raw_data_list <- list()
@@ -74,7 +74,7 @@ read_plates <- function(input_data,
 #' @export
 read_plate <- function(file_path,
                        skip_lines = 2) {
-  plate_data <- read.table(file_path, check.names = F, skip = skip_lines, header = T)
+  plate_data <- read.table(file_path, check.names = FALSE, skip = skip_lines, header = TRUE)
   info <- readLines(file_path, n = skip_lines)
   attr(plate_data, "info") <- info[nzchar(info)]
   return(plate_data)

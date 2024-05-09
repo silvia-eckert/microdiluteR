@@ -18,8 +18,8 @@
 #' @export
 tidy_plates <- function(input_data,
                         how_many = c("single", "multiple"),
-                        user_prompt = F,
-                        multiple_structures = F,
+                        user_prompt = FALSE,
+                        multiple_structures = FALSE,
                         direction = c("horizontal", "vertical"),
                         ...) {
 
@@ -27,13 +27,13 @@ tidy_plates <- function(input_data,
   if (how_many == "single") {
     # Apply tidy_single_plate() to tidy single plate
     tidy_data <- tidy_single_plate(input_data, direction = direction, ...)
-  } else if (how_many == "multiple" && user_prompt == F && multiple_structures == F) {
+  } else if (how_many == "multiple" && user_prompt == FALSE && multiple_structures == FALSE) {
     # Apply tidy_single_plate() to tidy multiple plates with the same metadata structure without user prompts
     tidy_data <- tidy_plates_via_params(input_data, direction = direction, ...)
-  } else if (how_many == "multiple" && user_prompt == T && multiple_structures == F) {
+  } else if (how_many == "multiple" && user_prompt == TRUE && multiple_structures == FALSE) {
     # Apply tidy_single_plate() to tidy multiple plates with the same metadata structure via user prompts
     tidy_data <- tidy_plates_via_prompts(input_data, direction = direction, ...)
-  } else if (how_many == "multiple" && user_prompt == T && multiple_structures == T) {
+  } else if (how_many == "multiple" && user_prompt == TRUE && multiple_structures == TRUE) {
     # If data frames have different structures, apply tidy_plates_via_prompts() to each plate separately.
     raw_data_list <- read_plates(input_data, ...)
     # Loop over and capture metadata separately for each plate

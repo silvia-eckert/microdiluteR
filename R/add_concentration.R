@@ -14,7 +14,7 @@
 #' @export
 add_concentration <- function(input_data,
                               concentration_list = NULL,
-                              ask_concentration_list = T,
+                              ask_concentration_list = TRUE,
                               ...) {
   if (ask_concentration_list) {
     concentration_list <- ask_concentration_list(...)
