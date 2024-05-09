@@ -3,9 +3,5 @@ url: https://silvia-eckert.github.io/microdiluteR/
 template:
   bootstrap: 5
 
-articles:
-- title: vignettes
-  navbar: ~
-  contents:
-  - tidy_photometer_data
-  - test_file
+toc:
+  depth: 3
