@@ -76,13 +76,8 @@ tidy_data <- tidy_plates(bma[1],
                 TP = Timepoint) # rename some columns for convenience
 ```
 
-This is a snippet of the resulting table...
+This is the resulting table:
 ```{r result_table}
 tidy_data
-```
-
-... and the table structure:
-```{r result_structure}
-str(tidy_data)
 ```
 
