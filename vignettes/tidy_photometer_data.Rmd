@@ -3,13 +3,11 @@ title: "Tidy photometer data with `tidy_plates()`"
 author: "Silvia Eckert"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::html_vignette:
-    toc: true
-    toc_depth: 3
+  rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Tidy photometer data with `tidy_plates()`}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 <a id="toc"></a>
