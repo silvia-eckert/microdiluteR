@@ -6,8 +6,5 @@ articles:
 - title: Get started
   navbar: ~
   contents:
-  - dplyr
-  - grouping
-  - two-table
-  - base
+  - tidy_photometer_data
 
