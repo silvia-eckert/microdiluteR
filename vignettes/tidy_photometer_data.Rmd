@@ -3,13 +3,11 @@ title: "Tidy photometer data with `tidy_plates()`"
 author: "Silvia Eckert"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::html_vignette:
-    toc: true
-    toc_depth: 3
+  rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Tidy photometer data with `tidy_plates()`}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 <a id="toc"></a>
@@ -21,7 +19,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-During my work as a postdoc in multiple labs, I experienced that old photometer devices are still in use even if corresponding proprietary software (e.g. being dependent on an outdated OS) is no longer available. This is a good sign from an ecological point of view (i.e. avoidance of electronic waste) but it’s more often rather a question of the laboratory’s financial resources. However, absorption values (e.g. in a 8 x 12 table format in plain text files for 96-well plates) returned from these devices are usually analyzed via a custom Excel sheet that someone created long ago and everyone relies on it. This might work since each photometer type provides their own file structure but Excel is a proprietary software itself, i.e. not easily available for everyone. Also, the steps are tedious for most cases because only some of the analyses can be carried out in it and only limited experimental designs are supported. In contrast, R is an established open-source statistical tool, so why not also use it as a tool to tidy photometer plate data, to flexibly adding experimental designs as metadata and even conduct at least some simple visualizations and statistical analyses, all in one go?
+During my work as a postdoc in various laboratories, I experienced that old photometer devices are still in use, even if the associated proprietary software (e.g. depending on an outdated operating system) is no longer available. This is a good sign from an environmental point of view (e.g. avoiding electronic waste), but is often more a question of the laboratory's financial resources. However, the absorption values provided by these devices (e.g. in an 8 x 12 table format in simple text files for 96-well plates) are usually analysed via a custom Excel spreadsheet that someone created a long time ago and that everyone relies on. This may work, as each type of photometer has its own file structure, but Excel is itself proprietary software, i.e. not easily accessible to everyone. Also, the steps are tedious in most cases as only some of the analyses can be performed in it and only limited experimental designs are supported. In contrast, R is an established open source statistics software. So why not also use it as a tool to organize photometer plate data, flexibly add experimental designs as metadata and even perform at least some simple visualizations and statistical analyses, all in one go?
 
 ![<b>A [96-well photometer plate](https://en.m.wikipedia.org/wiki/File:96-Well_plate.svg) is often used for broth microdilution assays.</b>](https://upload.wikimedia.org/wikipedia/commons/0/07/96-Well_plate.svg)
 
