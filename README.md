@@ -28,11 +28,11 @@ A detailed tutorial can be found on this
 
 ## :floppy_disk: Installation
 
-You can install the development version of `microdiluteR` from
-[GitHub](https://github.com/) with:
+You can install the development version of `microdiluteR` from GitHub
+with:
 
 ``` r
-# install.packages("devtools")
+# install.packages("devtools") # if not installed already
 devtools::install_github("silvia-eckert/microdiluteR")
 ```
 
@@ -42,6 +42,15 @@ You can load `microdiluteR` as follows:
 
 ``` r
 library(microdiluteR)
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 ```
 
 Let’s try out the main function `tidy_plates()` with example data:
@@ -85,28 +94,35 @@ tidy_data <- tidy_plates(bma[1],
                          how_many = "single",
                          direction = "horizontal",
                          validity_method = "threshold",
-                         threshold = 0.36, # all values above 0.36 are rendered invalid
+                         threshold = 0.355, # values above this are set as invalid
                          group_ID = "Group 1", # optional
                          experiment_name = "Experiment A", # optional
                          treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
-                         concentration_levels = rep(c(100,200), times = 4))
+                          concentration_levels = rep(c(100,200), times = 4)) #%>% 
+  # dplyr::rename(Pos = Position,
+  #               Val = Value,
+  #               Treat = Treatment,
+  #               Conc = Concentration,
+  #               TP = Timepoint) # rename some columns for convenience
 ```
 
-This is the resulting table:
+This is a snippet of the resulting table:
 
 ``` r
-knitr::kable(head(tidy_data, 10))
+tidy_data
+#> # A tibble: 96 × 9
+#>    Position Value Validity Treatment Concentration Timepoint File          Group
+#>    <chr>    <dbl> <chr>    <chr>             <dbl> <chr>     <chr>         <chr>
+#>  1 A-1      0.342 valid    10%                 100 T0        bma_grp1_exp… Grou…
+#>  2 A-2      0.354 valid    10%                 100 T0        bma_grp1_exp… Grou…
+#>  3 A-3      0.36  invalid  10%                 100 T0        bma_grp1_exp… Grou…
+#>  4 A-4      0.36  invalid  10%                 100 T0        bma_grp1_exp… Grou…
+#>  5 A-5      0.352 valid    10%                 100 T0        bma_grp1_exp… Grou…
+#>  6 A-6      0.363 invalid  10%                 100 T0        bma_grp1_exp… Grou…
+#>  7 A-7      0.361 invalid  10%                 100 T0        bma_grp1_exp… Grou…
+#>  8 A-8      0.352 valid    10%                 100 T0        bma_grp1_exp… Grou…
+#>  9 A-9      0.356 invalid  10%                 100 T0        bma_grp1_exp… Grou…
+#> 10 A-10     0.351 valid    10%                 100 T0        bma_grp1_exp… Grou…
+#> # ℹ 86 more rows
+#> # ℹ 1 more variable: Experiment <chr>
 ```
-
-| Position | Value | Validity | Treatment | Concentration | Timepoint | File             | Group   | Experiment   |
-|:---------|------:|:---------|:----------|--------------:|:----------|:-----------------|:--------|:-------------|
-| A-1      | 0.342 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-2      | 0.354 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-3      | 0.360 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-4      | 0.360 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-5      | 0.352 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-6      | 0.363 | invalid  | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-7      | 0.361 | invalid  | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-8      | 0.352 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-9      | 0.356 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |
-| A-10     | 0.351 | valid    | 10%       |           100 | T0        | bma_grp1_exp2_T0 | Group 1 | Experiment A |

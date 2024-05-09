@@ -29,10 +29,10 @@ The `microdiluteR` package is designed to help researchers tidy up data from pho
 
 ## :floppy_disk: Installation
 
-You can install the development version of `microdiluteR` from [GitHub](https://github.com/) with:
+You can install the development version of `microdiluteR` from GitHub with:
 
-``` r
-# install.packages("devtools")
+```{r installation, eval = FALSE}
+# install.packages("devtools") # if not installed already
 devtools::install_github("silvia-eckert/microdiluteR")
 ```
 
@@ -42,6 +42,7 @@ You can load `microdiluteR` as follows:
 
 ```{r library}
 library(microdiluteR)
+library(dplyr)
 ```
 
 Let's try out the main function `tidy_plates()` with example data:
@@ -61,15 +62,20 @@ tidy_data <- tidy_plates(bma[1],
                          how_many = "single",
                          direction = "horizontal",
                          validity_method = "threshold",
-                         threshold = 0.36, # all values above 0.36 are rendered invalid
+                         threshold = 0.355, # values above this are set as invalid
                          group_ID = "Group 1", # optional
                          experiment_name = "Experiment A", # optional
                          treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
-                         concentration_levels = rep(c(100,200), times = 4))
+                          concentration_levels = rep(c(100,200), times = 4)) #%>% 
+  # dplyr::rename(Pos = Position,
+  #               Val = Value,
+  #               Treat = Treatment,
+  #               Conc = Concentration,
+  #               TP = Timepoint) # rename some columns for convenience
 ```
 
-This is the resulting table:
+This is a snippet of the resulting table:
 ```{r}
-knitr::kable(head(tidy_data, 10))
+tidy_data
 ```
 
