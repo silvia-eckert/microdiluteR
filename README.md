@@ -43,14 +43,6 @@ You can load `microdiluteR` as follows:
 ``` r
 library(microdiluteR)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 ```
 
 Let’s try out the main function `tidy_plates()` with example data:

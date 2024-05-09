@@ -8,4 +8,4 @@ articles:
   navbar: ~
   contents:
   - tidy_photometer_data
-  - test
+  - test_file
