@@ -98,12 +98,12 @@ tidy_data <- tidy_plates(bma[1],
                          group_ID = "Group 1", # optional
                          experiment_name = "Experiment A", # optional
                          treatment_labels = rep(c("10%", "30%", "100%", "Control"), each = 2),
-                         concentration_levels = rep(c(100,200), times = 4)) #%>% 
-  # dplyr::rename(Pos = Position,
-  #               Val = Value,
-  #               Treat = Treatment,
-  #               Conc = Concentration,
-  #               TP = Timepoint) # rename some columns for convenience
+                         concentration_levels = rep(c(100,200), times = 4)) %>% 
+  dplyr::rename(Pos = Position,
+                Val = Value,
+                Treat = Treatment,
+                Conc = Concentration,
+                TP = Timepoint) # rename some columns for convenience
 ```
 
 This is a snippet of the resulting table:
@@ -111,18 +111,17 @@ This is a snippet of the resulting table:
 ``` r
 tidy_data
 #> # A tibble: 96 × 9
-#>    Position Value Validity Treatment Concentration Timepoint File          Group
-#>    <chr>    <dbl> <chr>    <chr>             <dbl> <chr>     <chr>         <chr>
-#>  1 A-1      0.342 valid    10%                 100 T0        bma_grp1_exp… Grou…
-#>  2 A-2      0.354 valid    10%                 100 T0        bma_grp1_exp… Grou…
-#>  3 A-3      0.36  invalid  10%                 100 T0        bma_grp1_exp… Grou…
-#>  4 A-4      0.36  invalid  10%                 100 T0        bma_grp1_exp… Grou…
-#>  5 A-5      0.352 valid    10%                 100 T0        bma_grp1_exp… Grou…
-#>  6 A-6      0.363 invalid  10%                 100 T0        bma_grp1_exp… Grou…
-#>  7 A-7      0.361 invalid  10%                 100 T0        bma_grp1_exp… Grou…
-#>  8 A-8      0.352 valid    10%                 100 T0        bma_grp1_exp… Grou…
-#>  9 A-9      0.356 invalid  10%                 100 T0        bma_grp1_exp… Grou…
-#> 10 A-10     0.351 valid    10%                 100 T0        bma_grp1_exp… Grou…
+#>    Pos     Val Validity Treat  Conc TP    File             Group   Experiment  
+#>    <chr> <dbl> <chr>    <chr> <dbl> <chr> <chr>            <chr>   <chr>       
+#>  1 A-1   0.342 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  2 A-2   0.354 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  3 A-3   0.36  invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  4 A-4   0.36  invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  5 A-5   0.352 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  6 A-6   0.363 invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  7 A-7   0.361 invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  8 A-8   0.352 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#>  9 A-9   0.356 invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
+#> 10 A-10  0.351 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
 #> # ℹ 86 more rows
-#> # ℹ 1 more variable: Experiment <chr>
 ```
