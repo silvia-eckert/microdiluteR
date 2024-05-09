@@ -299,5 +299,5 @@ This vignette shows how to add metadata to photometer files in plain text format
 
 ## Acknowledgements
 
-The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the [tidyverse](https://www.tidyverse.org/) network, the [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
+The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the great [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
 
