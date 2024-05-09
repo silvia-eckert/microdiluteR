@@ -70,12 +70,11 @@ tidy_data <- tidy_plates(bma[1],
                          concentration_levels = rep(c(100,200), times = 4))
 
 # Let's rename some columns for convenience
-tidy_data <- dplyr::rename(tidy_data,
-                           Pos = Position,
-                           Val = Value,
-                           Treat = Treatment,
-                           Conc = Concentration,
-                           TP = Timepoint)
+names(tidy_data)[names(tidy_data) == 'Position'] <- 'Pos'
+names(tidy_data)[names(tidy_data) == 'Value'] <- 'Val'
+names(tidy_data)[names(tidy_data) == 'Treatment'] <- 'Treat'
+names(tidy_data)[names(tidy_data) == 'Concentration'] <- 'Conc'
+names(tidy_data)[names(tidy_data) == 'Timepoint'] <- 'TP'
 ```
 
 This is the resulting table:
