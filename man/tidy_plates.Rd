@@ -7,8 +7,8 @@
 tidy_plates(
   input_data,
   how_many = c("single", "multiple"),
-  user_prompt = F,
-  multiple_structures = F,
+  user_prompt = FALSE,
+  multiple_structures = FALSE,
   direction = c("horizontal", "vertical"),
   ...
 )

@@ -10,7 +10,7 @@
 add_concentration(
   input_data,
   concentration_list = NULL,
-  ask_concentration_list = T,
+  ask_concentration_list = TRUE,
   ...
 )
 

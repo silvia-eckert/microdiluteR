@@ -10,8 +10,8 @@
 \usage{
 calculate_growth_performance(
   input_data,
-  treatment_grouping = F,
-  concentration_grouping = F,
+  treatment_grouping = FALSE,
+  concentration_grouping = FALSE,
   group = "Group",
   experiment = "Experiment",
   treatment = "Treatment",
@@ -25,7 +25,7 @@ calculate_percentage_change(input, reference)
 
 summarize_growth_performance(
   input_data,
-  compute_sd = F,
+  compute_sd = FALSE,
   grouping = c("Group", "Treatment", "Concentration", "Timepoint"),
   treatment = "Treatment",
   value = "Value"
@@ -36,7 +36,7 @@ plot_growth_performance(
   stats_data = NULL,
   level_unit = NULL,
   treatment_order = NULL,
-  apply_sign_test = F,
+  apply_sign_test = FALSE,
   grouping = NULL,
   x_var = "Treatment",
   y_var = "mean",

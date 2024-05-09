@@ -7,7 +7,12 @@
 \alias{match_treatment}
 \title{Add treatment metadata}
 \usage{
-add_treatment(input_data, treatment_list = NULL, ask_treatment_list = T, ...)
+add_treatment(
+  input_data,
+  treatment_list = NULL,
+  ask_treatment_list = TRUE,
+  ...
+)
 
 generate_treatment_list(treatment_labels, direction)
 
