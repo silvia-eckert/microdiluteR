@@ -1,4 +1,4 @@
-name: code coverage
+name: codecov
 on:
   push:
     branches:  [main]
