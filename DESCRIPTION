@@ -25,7 +25,7 @@ Description: A framework for analyzing broth microdilution assays in various
     <doi:10.1038/s41598-020-67600-7>.
 URL: https://silvia-eckert.github.io/microdiluteR/
 BugReports: https://github.com/silvia-eckert/microdiluteR/issues
-License: use_gpl_license()
+License: GPL (>=3)
 Depends:
     R (>= 4.3)
 Imports:
