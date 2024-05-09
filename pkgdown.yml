@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   test: test.html
   tidy_photometer_data: tidy_photometer_data.html
-last_built: 2024-05-09T12:01Z
+last_built: 2024-05-09T12:05Z
 urls:
   reference: https://silvia-eckert.github.io/microdiluteR/reference
   article: https://silvia-eckert.github.io/microdiluteR/articles
