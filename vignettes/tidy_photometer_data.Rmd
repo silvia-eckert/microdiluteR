@@ -10,8 +10,6 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-<a id="toc"></a>
-
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -45,8 +43,6 @@ The `microdiluteR` package can be loaded as follows:
 library(microdiluteR)
 ```
 
-[Back to top](#toc)
-
 ## Usage
 
 To show the general workflow, we will use example data shipped with the `microdiluteR` package. For use cases relying on real-world data, please check out upcoming vignettes. The example data used here is a list of multiple photometer measurements on 96-well plates.
@@ -68,8 +64,6 @@ We can see that the plate has been loaded in a horizontal direction (rows starti
 ```{r help_page, eval = FALSE}
 ?bma # check out details on the experimental setup
 ```
-
-[Back to top](#toc)
 
 ### Read plates
 
@@ -153,8 +147,6 @@ unlink(file_path_T1)
 
 These functions are purely for inspection or for custom use. To add metadata, these function are not necessary and users can directly apply the `tidy_plates()` function on either single files, a folder pointing to single or multiple files (using custom patterns if necessary) or lists of photometer data already loaded into R (with `read_plate()`, `read_plates()` or any other function as long as as a list structure is preserved).
 
-[Back to top](#toc)
-
 ### Tidy data from a single plate
 
 Tidying data from a single photometer plate is straightforward. Simply provide your input data to `tidy_plates()`, set the desired metadata and it will handle the rest. Your input data can be a file name, a folder pointing to this file (given there are no other interfering files, or else use a pattern) or a list element that has already been read into R. Here, we will use the first data set from `bma` and apply the metadata provided in the attributes:
@@ -194,8 +186,6 @@ knitr::kable(head(tidy_df, 10))
 
 We see that the timepoint was added automatically and we didn't have to specify it explicitely. That's because the timepoint was extracted from the file name 'bma_grp1_exp1_T0". The file name also contains 'bma', 'grp1' and 'exp1' as identifiers. This will become important in the next section when several plates are read.
 
-[Back to top](#toc)
-
 ### Prepare file names
 
 The easiest way to prepare your files for use with the `tidy_plates()` function is to add a pattern at the beginning of the file names. Simply use the beginning of your file name and leave the rest of the file name unchanged to make sure you still know what your file is about. If we have a look at the file names of the `bma` dataset, we see that they have a specific pattern including 'grp1', 'grp2', 'exp1', 'exp2', as well as timepoints ('T0' and 'T1'). These patterns are necessary for `tidy_plates()` to correctly assign the group and experiment names. For example, we could have repeated the experiment from the above-mentioned plate called 'Assay 1' but used other concentrations or even other chemicals or antibiotics, now using 'Assay 2' as the experiment name for this plate. Additionally, we could also have repeated these experiments with another test organism, e.g. _Penicillium digitatum_ instead of _B. cinerea_. Adding plate data from measurements with this second test organism, we need to specify it in the group name.
@@ -233,13 +223,9 @@ names(bma)
 
 This means, we have two groups, and one experiment per group, but each experiment measured at timepoint T0 and T3.
 
-[Back to top](#toc)
-
 ### Tidy data from multiple plates with a common experimental setup
 
 Since all measurements in `bma` were performed under a common treatment and concentration setting, we will apply this metadata all at once. In this case, we need to specify that we want to clean multiple plates.
-
-[Back to top](#toc)
 
 #### Tidy via function parameters
 
@@ -268,8 +254,6 @@ knitr::kable(head(tidy_dfs, 10))
 
 Keep in mind that the naming strategy will be performed sequentially. This means that, for example, 'Assay 1' will be applied to identifier 'exp1'. But since only files of the second group, _P. digitatum_, contain 'exp1' as identifier, all experiments with _P. digitatum_ will be assigned to 'Assay 1' and all experiments with _B. cinerea_ will be assigned to 'Assay 2'.
 
-[Back to top](#toc)
-
 #### Tidy via user prompts
 
 Another way to add metadata is to prompt the user. In this way, each part, from the group name to the concentration level, is queried in turn.
@@ -289,8 +273,6 @@ After processing with user prompts, you can check if both options give the same 
 identical(tidy_dfs, tidy_dfs_prompts) # should be TRUE
 ```
 
-[Back to top](#toc)
-
 ### Tidy data from multiple plates with different experimental setups
 
 What if it gets more complicated and each group or experiment (or both) has its own individual experimental set-up? But you still want them in a common table for further processing? Don't worry, `tidy_plates()` can handle that too. In that case, the user is prompted for the experimental setup as before but for every plate separately.
@@ -305,8 +287,6 @@ tidy_dfs_individually <- tidy_plates(
   )
 ```
 
-[Back to top](#toc)
-
 ## Further data processing options
 
 This vignette shows how to add metadata to photometer files in plain text format. However, this is certainly not where the analysis pipeline ends. The `microdiluteR` package has more to offer, but this will be covered in further vignettes in this R package:
@@ -317,10 +297,7 @@ This vignette shows how to add metadata to photometer files in plain text format
 - Applying the sign test to assess whether growth performance significantly differs from the baseline (usually the control) using the `apply_sign_test()` function.
 - Visualize your results, with or without sign test results in asterisk notation, using the `plot_growth_performance()` function.
 
-[Back to top](#toc)
-
 ## Acknowledgements
 
 The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the [tidyverse](https://www.tidyverse.org/) network, the [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
 
-[Back to top](#toc)
