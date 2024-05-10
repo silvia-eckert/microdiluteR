@@ -153,16 +153,36 @@ behavior) or non-positive (indicating monotonic non-increasing behavior).</p>
 <span class="r-in"><span>                     x_var <span class="op">=</span> <span class="st">"Timepoint"</span>,</span></span>
 <span class="r-in"><span>                     y_var <span class="op">=</span> <span class="st">"Value"</span>,</span></span>
 <span class="r-in"><span>                     grouping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Group_1"</span>, <span class="st">"Group_2"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> All groups have monotonic behavior. Returning original input data.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Do you want to see all plots? (y/n): </span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in if (tolower(choice) == "y") {    for (group_name in names(data)) {        group &lt;- data[[group_name]]        p &lt;- ggplot(group, aes(x = !!sym(x_var), y = !!sym(y_var),             group = 1)) + geom_line() + geom_point(size = 5) +             labs(title = paste("Case:", group_name)) + theme_minimal()        print(p)        cat("Press Enter to continue...")        invisible(readLines(n = 1))    }}:</span> argument is of length zero</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> All groups have monotonic behavior. Returning original input data.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Position Value Timepoint Validity Group_1 Group_2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         1     1        T1    valid       A       a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         2     2        T2    valid       A       a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         3     3        T3    valid       A       a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         4     4        T1    valid       A       b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         5     5        T2    valid       A       b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         6     6        T3    valid       A       b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         7     7        T1    valid       A       c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         8     8        T2    valid       A       c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         9     9        T3    valid       A       c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       10    10        T1    valid       A       d</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11       11    11        T2    valid       A       d</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12       12    12        T3    valid       A       d</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13       13    13        T1    valid       A       e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14       14    14        T2    valid       A       e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15       15    15        T3    valid       A       e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16       16    16        T1    valid       A       f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17       17    17        T2    valid       A       f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18       18    18        T3    valid       A       f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19       19    19        T1    valid       A       g</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20       20    20        T2    valid       A       g</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21       21    21        T3    valid       A       g</span>
 <span class="r-in"><span><span class="co"># Six groups behave non-monotonically</span></span></span>
 <span class="r-in"><span><span class="fu">check_well_positions</span><span class="op">(</span><span class="va">df</span><span class="op">[</span><span class="va">df</span><span class="op">$</span><span class="va">Group_1</span> <span class="op">==</span> <span class="st">"B"</span>,<span class="op">]</span>,</span></span>
 <span class="r-in"><span>                     x_var <span class="op">=</span> <span class="st">"Timepoint"</span>,</span></span>
 <span class="r-in"><span>                     y_var <span class="op">=</span> <span class="st">"Value"</span>,</span></span>
 <span class="r-in"><span>                     grouping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Group_1"</span>, <span class="st">"Group_2"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Non-monotonic well positions detected for case: B.h . Do you want to set this group as valid? (y/n): </span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in if (tolower(choice) == "y") {    cat("Case", group_name, "set as valid\n")    non_monotonic_groups &lt;- non_monotonic_groups[non_monotonic_groups !=         group_name]} else {    cat("Continuing without changes for case:", group_name, "\n")}:</span> argument is of length zero</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in if (tolower(choice) == "y") {    message("Case ", group_name, " set as valid\n")    non_monotonic_groups &lt;- non_monotonic_groups[non_monotonic_groups !=         group_name]} else {    message("Continuing without changes for case: ", group_name,         "\n")}:</span> argument is of length zero</span>
 <span class="r-plt img"><img src="check_well_positions-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># Check if a vector is monotonically increasing (will return TRUE)</span></span></span>
 <span class="r-in"><span><span class="fu">check_monotonicity</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
