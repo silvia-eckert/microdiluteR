@@ -7,7 +7,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{Tidy photometer data with `tidy_plates()`}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}
