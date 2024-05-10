@@ -118,3 +118,8 @@ tidy_data
 #> 10 A-10  0.351 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A
 #> # ℹ 86 more rows
 ```
+
+------------------------------------------------------------------------
+
+Logo generated with
+[hexSticker](https://github.com/GuangchuangYu/hexSticker)

@@ -82,3 +82,6 @@ This is the resulting table:
 tidy_data
 ```
 
+---
+
+Logo generated with [hexSticker](https://github.com/GuangchuangYu/hexSticker)
