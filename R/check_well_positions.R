@@ -54,8 +54,7 @@ check_well_positions <- function(input_data,
   
   # Group data if grouping is provided
   if (!is.null(grouping)) {
-    data <- split(input_data,
-                  do.call(interaction, c(input_data[grouping])))
+    data <- split(input_data, input_data[grouping])
     data <- list_drop_empty(data)
   } else {
     data <- list(input_data)
@@ -76,80 +75,53 @@ check_well_positions <- function(input_data,
     if (!is_monotonic) {
       non_monotonic_groups <- c(non_monotonic_groups, group_name)
       
-      # Create line chart
-      p <- ggplot(group, aes(x = !!sym(x_var),
-                             y = !!sym(y_var),
-                             group=1)) +
+      # Create line chart (HERE IS THE ERROR!!!)
+      p <- ggplot(group,
+                  aes(x = !!sym(x_var),
+                      y = !!sym(y_var),
+                      group=1)) +
         geom_line() +
         geom_point(size=5) +
         labs(title = paste("Case:", group_name)) +
         theme_minimal()
       
+      # Displayp plot
       print(p)
-      
+
       # Ask user if they want to set the group as monotonic
       cat("Non-monotonic well positions detected for case:", group_name, ". Do you want to set this group as valid? (y/n): ")
       choice <- readLines(con = getOption("microdiluteR.connection"), n = 1)
       if (tolower(choice) == "y") {
         # Set the group as monotonic
-        cat("Case", group_name, "set as valid\n")
+        message("Case ", group_name, " set as valid\n")
         # Update the data to remove this group from non-monotonic list
         non_monotonic_groups <- non_monotonic_groups[non_monotonic_groups != group_name]
       } else {
-        cat("Continuing without changes for case:", group_name, "\n")
+        message("Continuing without changes for case: ", group_name, "\n")
       }
     }
   }
   
   # If any group is non-monotonic, return a subset of data containing non-monotonic groups
   if (length(non_monotonic_groups) > 0) {
-    cat("Non-monotonic groups detected:", paste(non_monotonic_groups, collapse = ", "), "\n")
-    cat("Returning subset of data containing non-monotonic groups.\n")
+    message("Non-monotonic groups detected: ", paste(non_monotonic_groups, collapse = ", "), 
+            "\nReturning subset of data containing non-monotonic groups.")
     
     # Extract rows corresponding to non-monotonic groups
     non_monotonic_subset <- input_data[do.call(paste,
-                                             c(input_data[grouping],
-                                               sep = ".")) %in% non_monotonic_groups, ]
+                                               c(input_data[grouping],
+                                                 sep = ".")) %in% non_monotonic_groups, ]
     # Invalidate samples in non_monotonic_subset and extract well positions
     non_monotonic_subset[[v_var]] <- "invalid"
     invalid_well_positions <- unique(non_monotonic_subset[, wp_var])
     
-    # Create unique identifier for each combination of group values
-    group_combinations <- do.call(paste, c(input_data[grouping], sep = "."))
-    unique_group_combinations <- unique(group_combinations)
-    
-    # Iterate over each unique group value
-    for (i in unique_group_combinations) {
-      group_data <- input_data[group_combinations == i, ]
-      group_data[[v_var]][group_data[[wp_var]] %in% invalid_well_positions] <- "invalid"
-      input_data[group_combinations == i, ] <- group_data
-    }
+    # Invalidate samples in original input data
+    input_data[input_data[[wp_var]] %in% invalid_well_positions, v_var] <- "invalid"
 
     return(list(non_monotonic_subset = non_monotonic_subset, modified_input_data = input_data))
   } else {
-    cat("All groups have monotonic behavior. Returning original input data.\nDo you want to see all plots? (y/n): ")
-    choice <- readLines(con = getOption("microdiluteR.connection"), n = 1)
-    if (tolower(choice) == "y") {
-      for (group_name in names(data)) {
-        group <- data[[group_name]]
-        
-        # Create the plot
-        p <- ggplot(group,
-                    aes(x = !!sym(x_var),
-                        y = !!sym(y_var),
-                        group = 1)) +
-          geom_line() +
-          geom_point(size = 5) +
-          labs(title = paste("Case:", group_name)) +
-          theme_minimal()
-        
-        print(p)
-        
-        # Wait for user input before proceeding to next plot
-        cat("Press Enter to continue...")
-        invisible(readLines(n = 1))
-      }
-    }
+    message("All groups have monotonic behavior. Returning original input data.")
+
     # Return full input data in case all groups are monotonic
     return(input_data)
   }

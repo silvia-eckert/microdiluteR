@@ -9,7 +9,7 @@ treatment_list_vertical <- list(`1` = 1, `2` = 2, `3` = 3, `4` = 4,
                                     `5` = 5, `6` = 6, `7` = 7, `8` = 8,
                                     `9` = 9, `10` = 10, `11` = 11, `12` = 12)
 
-test_that("Test whether add_treatment() contains a treatment column without user prompt.", {
+test_that("add_treatment() correctly adds a treatment column without user prompt", {
   
   # Call function
   result_horizontal <- add_treatment(test_data, treatment_list_horizontal, ask_treatment_list = F)
@@ -33,7 +33,7 @@ test_that("Test whether add_treatment() contains a treatment column without user
 })
 
 
-test_that("Test whether add_treatment() handles user prompts for horizontal axes correctly.", {
+test_that("add_treatment() correctly handles user prompts for horizontal axes", {
   
   # Generate connection
   f <- file()
@@ -54,7 +54,7 @@ test_that("Test whether add_treatment() handles user prompts for horizontal axes
   close(f)
 })
 
-test_that("Test whether add_treatment() handles user prompts for vertical axes correctly.", {
+test_that("add_treatment() correctly handles user prompts for vertical axes", {
   
   # Generate connection
   f <- file()

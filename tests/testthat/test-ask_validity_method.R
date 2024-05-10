@@ -1,4 +1,4 @@
-test_that("Test whether ask_validity_method() distinguishes valid from invalid options.", {
+test_that("ask_validity_method() correctly distinguishes valid from invalid options", {
   
   # Generate connection
   f <- file()

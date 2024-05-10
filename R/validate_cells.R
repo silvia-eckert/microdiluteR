@@ -82,10 +82,12 @@ apply_validation_method <- function(value,
 ask_validity_method <- function() {
   cat("Enter 'threshold' for specifying a threshold or 'samples' for directly providing invalid samples: ")
   option <- readLines(con = getOption("microdiluteR.connection"), n = 1)
+
+  # Make option case-insensitive
+  option <- tolower(option)
+  
   # Check options
-  if (option == "threshold") {
-    return(option)
-  } else if (option == "samples") {
+  if (option %in% c("threshold", "samples")) {
     return(option)
   } else {
     stop("Invalid option selected: ", option, ". Please choose either 'threshold' or 'samples'.")
@@ -102,7 +104,7 @@ ask_threshold <- function() {
   threshold <- readLines(con = getOption("microdiluteR.connection"), n = 1)
   threshold <- suppressWarnings(as.numeric(threshold))
   
-  # Check if character input was converted to NA
+  # Check if character input was converted to NA (if not numeric)
   if (is.na(threshold)) {
     stop("Please enter a numeric value for 'threshold'.")
   }
@@ -118,7 +120,15 @@ ask_threshold <- function() {
 ask_invalid_samples <- function() {
   cat("Enter well positions (e.g. A-2) of invalid samples separated by spaces: ")
   invalid_samples <- readLines(con = getOption("microdiluteR.connection"), n = 1)
-  unlist(strsplit(invalid_samples, " "))
+  
+  # Validate input format
+  if (!grepl("^([A-H]-[1-9][0-2]?\\s?)+$", invalid_samples)) {
+    # Invalid input format
+    stop("Invalid input format. Please enter well positions separated by spaces in the format 'A-2'.")
+  }
+  
+  # Split and return well positions
+  return(unlist(strsplit(invalid_samples, " ")))
 }
 
 #' @title Update Validity based on specified position and group levels

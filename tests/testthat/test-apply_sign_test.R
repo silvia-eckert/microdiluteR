@@ -8,7 +8,7 @@ summarized_data <- data.frame(
   Mean = c(0, 100)
 )
 
-test_that("Test whether apply_sign_test() provides correct results.", {
+test_that("apply_sign_test() correctly applies sign test", {
 
   # Call function
   result <- apply_sign_test(stats_data,

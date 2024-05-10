@@ -70,7 +70,7 @@ expected_result_vertical <- tibble(data.frame(
 
 # Test case 1: Apply function to list with data frames, metadata for horizontal axes,
 # and 'threshold' as validity method
-test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'threshold' validity.", {
+test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'threshold' validity", {
   
   # Apply setup action
   test_fixture_2$setup
@@ -111,7 +111,7 @@ test_that("tidy_single_plate() correctly adds metadata for horizontal axes using
 
 # Test case 2: Apply function to list with data frames, metadata for horizontal axes,
 # and 'samples' as validity method
-test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'samples' validity.", {
+test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'samples' validity", {
   
   # Apply setup action
   test_fixture_2$setup
@@ -154,7 +154,7 @@ test_that("tidy_single_plate() correctly adds metadata for horizontal axes using
 
 # Test case 3: Apply function to list with data frames, metadata for vertical axes,
 # and 'threshold' as validity method
-test_that("tidy_single_plate() correctly adds metadata for vertical axes using 'threshold' validity.", {
+test_that("tidy_single_plate() correctly adds metadata for vertical axes using 'threshold' validity", {
   
   # Apply setup action
   test_fixture_2$setup
@@ -194,7 +194,7 @@ test_that("tidy_single_plate() correctly adds metadata for vertical axes using '
 
 # Test case 4: Apply function to list with data frames, metadata for vertical axes,
 # and 'samples' as validity method
-test_that("tidy_single_plate() correctly adds metadata for vertical axes using 'samples' validity.", {
+test_that("tidy_single_plate() correctly adds metadata for vertical axes using 'samples' validity", {
   
   # Apply setup action
   test_fixture_2$setup

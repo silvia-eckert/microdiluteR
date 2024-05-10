@@ -1,7 +1,7 @@
 file_list <- c("BMA_exp1_T0", "bma_exp2_T0")
 
 # Test case 1
-test_that("Test whether ask_experiment_list() stores user inputs for experiment names'.", {
+test_that("ask_experiment_list() correctly stores user inputs for experiment names'", {
   
   # Generate connection
   f <- file()

@@ -1,4 +1,4 @@
-test_that("calculate_percentage_change() calculates percentage change correctly", {
+test_that("calculate_percentage_change() correctly calculates percentage change", {
   # Define test cases
   test_cases <- list(
     list(input = 10, reference = 5, expected_change = 100),

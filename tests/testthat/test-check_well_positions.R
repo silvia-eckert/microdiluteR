@@ -20,7 +20,7 @@ grouped_nonmonotonic_data <- data.frame(
 )
 
 # Define test cases
-test_that("Test whether check_well_positions() handles different scenarios correctly.", {
+test_that("check_well_positions() correctly handles different scenarios of sample re-validation", {
   
   # Generate connection
   f <- file()

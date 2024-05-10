@@ -74,7 +74,7 @@ attr(expected_result_vertical, "info") <- data.frame(File_name = test_file_name,
                                                      Attribute = "Line with additional information")
 
 # Test case 1: Apply function to add metadata for horizontal axes and 'threshold' as validity method
-test_that("tidy_plates_via_prompts() correctly adds metadata for horizontal axes using 'threshold' validity.", {
+test_that("tidy_plates_via_prompts() correctly adds metadata for horizontal axes using 'threshold' validity", {
   
   # Generate connection
   f <- file()
@@ -119,7 +119,7 @@ test_that("tidy_plates_via_prompts() correctly adds metadata for horizontal axes
 
  
 # Test case 2: Apply function to add metadata for vertical axes and 'samples' as validity method
-test_that("tidy_plates_via_prompts() correctly adds metadata for vertical axes using 'samples' validity.", {
+test_that("tidy_plates_via_prompts() correctly adds metadata for vertical axes using 'samples' validity", {
 
   # Generate connection
   f <- file()

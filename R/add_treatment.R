@@ -63,26 +63,33 @@ generate_treatment_list <- function(treatment_labels, direction){
 #' @rdname add_treatment
 #' @export
 ask_treatment_list <- function(direction=c("horizontal","vertical")) {
+  direction <- match.arg(direction)
   
+  # Check plate direction
   if (direction == "horizontal") {
     plate_lab = LETTERS[1:8]
-    attr(plate_lab,  "axis") <- "row"
+    axis_label <- "row"
   } else {
     plate_lab = 1:12
-    attr(plate_lab,  "axis") <- "column"
+    axis_label <- "column"
   }
   
   treatment_list <- setNames(rep(list(NULL), length(plate_lab)), plate_lab)
   
   for (axis in plate_lab) {
-    cat(paste("Enter treatment of ", attr(plate_lab, "axis"), paste0(axis, ": ")))
-    treatment_label <- readLines(con = getOption("microdiluteR.connection"), n = 1)
+    cat(sprintf("Enter treatment of %s %s: ", axis_label, axis))
+    treatment_label <- readLines(con = getOption("microdiluteR.connection"),
+                                     n = 1)
+    
     if (treatment_label == "") {
-      break
+      message("Missing value. Please enter valid input.\n")
+      return(NULL)
     }
+    
     treatment_list[[axis]] <- treatment_label
-    attr(treatment_list, "axis") <- attr(plate_lab,  "axis")
   }
+  
+  attr(treatment_list, "axis") <- axis_label
   return(treatment_list)
 }
 

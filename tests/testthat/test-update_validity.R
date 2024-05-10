@@ -9,7 +9,7 @@ test_data <- data.frame(
 )
 
 # Test case 1
-test_that("Test whether update_validity() labels specified well positions correctly as invalid.", {
+test_that("update_validity() correctly labels specified well positions as invalid", {
   
   # Generate input and expected result
   well_positions <- c("A1", "B1")
@@ -27,7 +27,7 @@ test_that("Test whether update_validity() labels specified well positions correc
 })
 
 # Test case 2
-test_that("Test whether update_validity() ignores well positions not in data.", {
+test_that("update_validity() correctly ignores well positions not in data", {
   
   # Generate input and expected result
   well_positions <- c("C1", "D1")
@@ -45,7 +45,7 @@ test_that("Test whether update_validity() ignores well positions not in data.", 
 })
 
 # Test case 3
-test_that("Test whether update_validity matches group levels correctly and sets corresponding well positions as invalid.", {
+test_that("update_validity correctly matches group levels and sets corresponding well positions as invalid", {
   
   # Generate input and expected result
   well_positions <- c("A2", "B2")

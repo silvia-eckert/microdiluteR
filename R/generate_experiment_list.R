@@ -38,10 +38,12 @@ ask_experiment_list <- function(file_list) {
   experiment_list <- setNames(rep(list(NULL), length(experiments)), experiments)
   
   for (experiment in names(experiment_list)) {
-    cat(paste0("Enter experiment identifier for ", experiment, ": "))
+    cat(sprintf("Enter experiment identifier for %s: ", experiment))
     experiment_label <- readLines(con = getOption("microdiluteR.connection"), n = 1)
+
     if (experiment_label == "") {
-      break
+      message("Missing value. Please enter valid input.\n")
+      return(NULL)
     }
     experiment_list[[experiment]] <- experiment_label
   }

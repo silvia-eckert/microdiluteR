@@ -75,7 +75,7 @@ attr(expected_result_vertical, "info") <- data.frame(File_name = test_file_name,
 
 # Test case 1: Apply function to list with data frames, metadata for horizontal axes,
 # and 'threshold' as validity method
-test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'threshold' validity.", {
+test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'threshold' validity", {
   
   # Apply setup action
   test_fixture_3$setup
@@ -115,7 +115,7 @@ test_that("tidy_single_plate() correctly adds metadata for horizontal axes using
 
 # Test case 2: Apply function to list with data frames, metadata for horizontal axes,
 # and 'samples' as validity method
-test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'samples' validity.", {
+test_that("tidy_single_plate() correctly adds metadata for horizontal axes using 'samples' validity", {
   
   # Apply setup action
   test_fixture_3$setup

@@ -65,28 +65,33 @@ generate_concentration_list <- function(concentration_levels, direction){
 #' @rdname add_concentration
 #' @export
 ask_concentration_list <- function(direction = c("horizontal","vertical")) {
+  direction <- match.arg(direction)
   
   # Check plate direction
   if (direction == "horizontal") {
     plate_lab = LETTERS[1:8]
-    attr(plate_lab,  "axis") <- "row"
+    axis_label <- "row"
   } else {
     plate_lab = 1:12
-    attr(plate_lab,  "axis") <- "column"
+    axis_label <- "column"
   }
   
   concentration_list <- setNames(rep(list(NULL), length(plate_lab)), plate_lab)
   
   for (axis in plate_lab) {
-    cat(paste("Enter concentration of", attr(plate_lab, "axis"), paste0(axis, ": ")))
-    concentration_label <- readLines(con = getOption("microdiluteR.connection"), 
+    cat(sprintf("Enter concentration of %s %s: ", axis_label, axis))
+    concentration_label <- readLines(con = getOption("microdiluteR.connection"),
                                      n = 1)
+
     if (concentration_label == "") {
-      break
+      message("Missing value. Please enter valid input.\n")
+      return(NULL)
     }
+    
     concentration_list[[axis]] <- concentration_label
-    attr(concentration_list, "axis") <- attr(plate_lab,  "axis")
   }
+
+  attr(concentration_list, "axis") <- axis_label
   return(concentration_list)
 }
 

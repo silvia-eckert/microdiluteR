@@ -7,7 +7,7 @@ test_data <- data.frame(
   Value = c(10, 12, 15, 18, 20, 15)
 )
 
-test_that("summarize_growth_performance() computes summarized data correctly", {
+test_that("summarize_growth_performance() correctly computes summarized data", {
   
   # Test case 1: Function call with parameter compute_sd = FALSE
   result_stderr <- summarize_growth_performance(test_data, compute_sd = FALSE)

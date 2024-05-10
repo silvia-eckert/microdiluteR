@@ -1,7 +1,7 @@
 file_list <- c("BMA_grp1_T0", "bma_grp2_T0")
 
 # Test case 1
-test_that("Test whether ask_group_list() stores user inputs for group names'.", {
+test_that("ask_group_list() correctly stores user inputs for group names'", {
   
   # Generate connection
   f <- file()

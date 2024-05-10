@@ -20,7 +20,7 @@ colnames(m) <- as.character(1:12)
 expected_result <- data.frame(m, check.names = F)
 attr(expected_result, "info") <- "Line with additional information"
 
-test_that("Test whether ask_validity_method() distinguishes valid from invalid options.", {
+test_that("ask_validity_method() correctly distinguishes valid from invalid options", {
   
   # Call function
   result <- read_plate(file_path)

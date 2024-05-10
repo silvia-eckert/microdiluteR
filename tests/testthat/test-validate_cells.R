@@ -6,7 +6,7 @@ threshold <- 10
 invalid_samples <- c("A-1", "B-2")
 
 # Test case 1: Validate matrix according to 'threshold' method
-test_that("Threshold method correctly validates data", {
+test_that("validate_cells() correctly validates data based on 'threshold' validation method", {
   
   # Generate expected output
   expected_output_threshold <- data.frame(
@@ -21,7 +21,7 @@ test_that("Threshold method correctly validates data", {
 })
 
 # Test case 2: Validate matrix according to 'samples' method
-test_that("Samples method correctly validates data", {
+test_that("validate_cells() correctly validates data based on 'samples' validation method", {
   
   # Generate expected output
   expected_output_samples <- data.frame(

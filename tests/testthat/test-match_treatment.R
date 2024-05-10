@@ -1,4 +1,4 @@
-test_that("Test whether 'match_treatment' correctly assigns treatments to well positions.", {
+test_that("match_treatment() correctly assigns treatments to well positions", {
   # Define test data
   treatment_list <- list(
     A1 = "A",

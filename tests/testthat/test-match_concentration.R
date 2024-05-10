@@ -1,4 +1,4 @@
-test_that("Test whether 'match_concentration' correctly assigns concentrations to well positions.", {
+test_that("match_concentration() correctly assigns concentrations to well positions", {
   # Define test data
   concentration_list <- list(
     A1 = 0.1,

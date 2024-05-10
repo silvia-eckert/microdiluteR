@@ -74,7 +74,7 @@ attr(expected_result_vertical, "info") <- data.frame(File_name = test_file_name,
                                                      Attribute = "Line with additional information")
 
 # Write tests using test_that blocks
-test_that("tidy_plates() behaves as expected.", {
+test_that("tidy_plates() behaves as expected", {
   
   # Generate connection
   f <- file()

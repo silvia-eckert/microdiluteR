@@ -38,10 +38,12 @@ ask_group_list <- function(file_list) {
   group_list <- setNames(rep(list(NULL), length(groups)), groups)
 
   for (group in names(group_list)) {
-    cat(paste0("Enter group name for ", group, ": "))
+    cat(sprintf("Enter group name for %s: ", group))
     group_label <- readLines(con = getOption("microdiluteR.connection"), n = 1)
+
     if (group_label == "") {
-      break
+      message("Missing value. Please enter valid input.\n")
+      return(NULL)
     }
     group_list[[group]] <- group_label
   }

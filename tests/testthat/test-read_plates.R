@@ -34,7 +34,7 @@ test_df <- data.frame(m, check.names = F)
 test_list <- list()
 test_list[[test_file_name]] <- test_df
 
-test_that("read_plates() works as expected.", {
+test_that("read_plates() correctly reads input as expected", {
   
   # Apply setup action
   test_fixture_1$setup

@@ -1,4 +1,4 @@
-test_that("Test whether apply_validation_method() correctly identifies validity in 'threshold' method.", {
+test_that("apply_validation_method() correctly identifies validity in 'threshold' method", {
   
   # Test case 1: Set value below threshold as 'valid'
   expect_equal(apply_validation_method(5, 1, 1, letters[1:10], letters[1:10],
@@ -9,7 +9,7 @@ test_that("Test whether apply_validation_method() correctly identifies validity 
                                        validity_method = "threshold", threshold = 10), "invalid")
 })
 
-test_that("Test whether apply_validation_method() correctly identifies validity in 'samples' method.", {
+test_that("apply_validation_method() correctly identifies validity in 'samples' method", {
   
   # Generate test data
   invalid_sample <- "A-1"
@@ -26,7 +26,7 @@ test_that("Test whether apply_validation_method() correctly identifies validity 
                                        invalid_samples = sample_not_present), "valid")
 })
 
-test_that("Error is thrown for invalid validity method", {
+test_that("apply_validation_method correctly throws an error for invalid validity method input", {
   
   # Test case 5: If validity method is invalid, throw error
   expect_error(apply_validation_method(5, 1, 1, letters[1:10], letters[1:10],

@@ -8,7 +8,7 @@ test_data <- data.frame(
   Value = runif(400, 1, 10)
 )
 
-test_that("calculate_growth_performance() computes growth performance correctly.", {
+test_that("calculate_growth_performance() correctly computes growth performance", {
   
   # Test case 1: Call function without grouping
   result_no_grouping <- calculate_growth_performance(test_data)

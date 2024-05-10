@@ -23,30 +23,45 @@ tidy_plates <- function(input_data,
                         direction = c("horizontal", "vertical"),
                         ...) {
 
+  # Input validation
+  if (!how_many %in% c("single", "multiple")) {
+    stop("Invalid value for 'how_many'. Please choose either 'single' or 'multiple'.")
+  }
+  if (!user_prompt %in% c(TRUE, FALSE)) {
+    stop("Invalid value for 'user_prompt'. Please provide either TRUE or FALSE.")
+  }
+  if (!multiple_structures %in% c(TRUE, FALSE)) {
+    stop("Invalid value for 'multiple_structures'. Please provide either TRUE or FALSE.")
+  }
+  if (!direction %in% c("horizontal", "vertical")) {
+    stop("Invalid value for 'direction'. Please choose either 'horizontal' or 'vertical'.")
+  }
+  
   # Decide based on user input which function to use  
   if (how_many == "single") {
     # Apply tidy_single_plate() to tidy single plate
     tidy_data <- tidy_single_plate(input_data, direction = direction, ...)
-  } else if (how_many == "multiple" && user_prompt == FALSE && multiple_structures == FALSE) {
-    # Apply tidy_single_plate() to tidy multiple plates with the same metadata structure without user prompts
-    tidy_data <- tidy_plates_via_params(input_data, direction = direction, ...)
-  } else if (how_many == "multiple" && user_prompt == TRUE && multiple_structures == FALSE) {
-    # Apply tidy_single_plate() to tidy multiple plates with the same metadata structure via user prompts
-    tidy_data <- tidy_plates_via_prompts(input_data, direction = direction, ...)
-  } else if (how_many == "multiple" && user_prompt == TRUE && multiple_structures == TRUE) {
-    # If data frames have different structures, apply tidy_plates_via_prompts() to each plate separately.
-    raw_data_list <- read_plates(input_data, ...)
-    # Loop over and capture metadata separately for each plate
-    tidy_list <- list()
-    for (i in names(raw_data_list)) {
-      cat("Adding metadata for file:", i, "\n")
-      tidy_list_element <- tidy_plates_via_prompts(raw_data_list[i], direction = direction, ...)
-      tidy_list[[i]] <- tidy_list_element
+  } else {
+    if (!user_prompt && !multiple_structures) {
+      # Apply tidy_single_plate() to tidy multiple plates with the same metadata structure without user prompts
+      tidy_data <- tidy_plates_via_params(input_data, direction = direction, ...)
+    } else if (user_prompt && !multiple_structures) {
+      # Apply tidy_single_plate() to tidy multiple plates with the same metadata structure via user prompts
+      tidy_data <- tidy_plates_via_prompts(input_data, direction = direction, ...)
+    } else if (user_prompt && multiple_structures) {
+      # If data frames have different structures, apply tidy_plates_via_prompts() to each plate separately.
+      raw_data_list <- read_plates(input_data, ...)
+      tidy_list <- list()
+      for (i in names(raw_data_list)) {
+        cat("Adding metadata for file:", i, "\n")
+        tidy_list_element <- tidy_plates_via_prompts(raw_data_list[i], direction = direction, ...)
+        tidy_list[[i]] <- tidy_list_element
       }
-    tidy_data <- do.call(rbind, tidy_list)
-    raw_data_list
+      tidy_data <- do.call(rbind, tidy_list)
     } else {
       stop("Please select the parameters with which you would like to add metadata to the values of your photometer plate(s).")
+    }
   }
+  
   return(tidy_data)
 }

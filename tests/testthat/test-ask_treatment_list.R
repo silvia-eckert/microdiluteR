@@ -1,5 +1,5 @@
 # Test case 1
-test_that("Test whether ask_treatment_list() stores eight user inputs in an attributed list with parameter 'horizontal'.", {
+test_that("ask_treatment_list() correctly stores eight user inputs in an attributed list with parameter 'horizontal'", {
   
   # Generate connection
   f <- file()
@@ -22,7 +22,7 @@ test_that("Test whether ask_treatment_list() stores eight user inputs in an attr
 })
 
 # Test case 2
-test_that("Test whether ask_treatment_list() stores twelve user inputs in an attributed list with parameter 'vertical'.", {
+test_that("ask_treatment_list() correctly stores twelve user inputs in an attributed list with parameter 'vertical'", {
   
   # Generate connection
   f <- file()

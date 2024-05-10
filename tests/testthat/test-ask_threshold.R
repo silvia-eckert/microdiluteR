@@ -1,4 +1,4 @@
-test_that("Test whether ask_threshold() stores a numeric number provided via user prompt.", {
+test_that("ask_threshold() correctly stores a numeric number provided via user prompt", {
   
   # Generate connection
   f <- file()
