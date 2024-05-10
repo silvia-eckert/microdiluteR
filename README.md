@@ -9,7 +9,7 @@ version](https://img.shields.io/github/r-package/v/silvia-eckert/microdiluteR)
 License](https://img.shields.io/github/license/silvia-eckert/microdiluteR)
 [![R CMD
 check](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck.yml/badge.svg)](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck.yml)
-[![codecov](https://codecov.io/gh/silvia-eckert/microdiluteR/graph/badge.svg?token=5K4A0M73W1/)](https://codecov.io/gh/silvia-eckert/microdiluteR/)
+[![codecov](https://codecov.io/gh/silvia-eckert/microdiluteR/graph/badge.svg?token=5K4A0M73W1/)](https://app.codecov.io/gh/silvia-eckert/microdiluteR/)
 ![GitHub commit
 activity](https://img.shields.io/github/commit-activity/m/silvia-eckert/microdiluteR)
 ![](https://img.shields.io/badge/repo%20status-active-green.svg) [![Say
