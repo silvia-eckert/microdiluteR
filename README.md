@@ -121,5 +121,5 @@ tidy_data
 
 ------------------------------------------------------------------------
 
-Logo generated with
+:heart: Logo generated with
 [hexSticker](https://github.com/GuangchuangYu/hexSticker)
