@@ -33,12 +33,12 @@ The `microdiluteR` package is designed to help researchers tidy up data from pho
 
 You can install the CRAN version of `microdiluteR` with:
 
-```{r installation, eval = FALSE}
+```{r cran_installation, eval = FALSE}
 install.packages("microdiluteR")
 ```
 You can install the development version of `microdiluteR` from GitHub with:
 
-```{r installation, eval = FALSE}
+```{r github_installation, eval = FALSE}
 # install.packages("devtools") # if not installed already
 devtools::install_github("silvia-eckert/microdiluteR")
 ```

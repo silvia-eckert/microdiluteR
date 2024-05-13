@@ -28,6 +28,12 @@ A detailed tutorial can be found
 
 ## :floppy_disk: Installation
 
+You can install the CRAN version of `microdiluteR` with:
+
+``` r
+install.packages("microdiluteR")
+```
+
 You can install the development version of `microdiluteR` from GitHub
 with:
 
