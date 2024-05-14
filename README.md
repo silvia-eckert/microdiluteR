@@ -12,6 +12,8 @@ check](https://github.com/silvia-eckert/microdiluteR/actions/workflows/rcmdcheck
 [![codecov](https://codecov.io/gh/silvia-eckert/microdiluteR/graph/badge.svg)](https://app.codecov.io/gh/silvia-eckert/microdiluteR/)
 ![GitHub commit
 activity](https://img.shields.io/github/commit-activity/m/silvia-eckert/microdiluteR)
+[![Total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/microdiluteR?color=blue)](https://CRAN.R-project.org/package=microdiluteR)
 ![](https://img.shields.io/badge/repo%20status-active-green.svg)
 [![DOI](https://zenodo.org/badge/796425451.svg)](https://zenodo.org/doi/10.5281/zenodo.11186925)
 [![Say
