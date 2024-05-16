@@ -83,14 +83,30 @@
 <p>The <code>microdiluteR</code> package is designed to help researchers tidy up data from photometer plates and provides functions to easily add metadata, regardless of whether the user is processing a single plate or multiple plates with complex metadata structures. This package was developed with a special focus on the analysis of <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/broth-dilution" class="external-link">broth microdilution assays</a>. A detailed tutorial can be found <a href="https://silvia-eckert.github.io/microdiluteR/">here</a>.</p>
 </div>
 <div class="section level2">
+<h2 id="bookmark_tabs-citation">
+<span class="emoji" data-emoji="bookmark_tabs">📑</span> Citation<a class="anchor" aria-label="anchor" href="#bookmark_tabs-citation"></a>
+</h2>
+<p>Creating this package was a lot of work, and I made it available for free. If you use this package for your publication, be fair and cite it, e.g. using the following <code>biblatex</code> entry:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">@</span><span class="fu">software</span>(eckert_micodiluteR_2024,</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="at">author   =</span> {Eckert, Silvia},</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="at">title    =</span> {microdiluteR},</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>  <span class="at">version =</span> {<span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">1.</span>},</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  <span class="at">date =</span> {<span class="dv">2024-05-13</span>}</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  <span class="at">year     =</span> {<span class="dv">2024</span>},</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>  <span class="at">note     =</span> {R package version <span class="dv">1</span>.<span class="fl">0.1</span>, available from CRAN},</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  <span class="at">url      =</span> {https<span class="sc">:</span><span class="er">//</span>cran.r<span class="sc">-</span>project.org<span class="sc">/</span>package<span class="ot">=</span>microdiluteR}</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>  <span class="at">doi      =</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.11186926</span>}</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="floppy_disk-installation">
 <span class="emoji" data-emoji="floppy_disk">💾</span> Installation<a class="anchor" aria-label="anchor" href="#floppy_disk-installation"></a>
 </h2>
 <p>You can install the CRAN version of <code>microdiluteR</code> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"microdiluteR"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of <code>microdiluteR</code> from GitHub with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools") # if not installed already</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"silvia-eckert/microdiluteR"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -99,10 +115,10 @@
 <span class="emoji" data-emoji="joystick">🕹️</span> Usage<a class="anchor" aria-label="anchor" href="#joystick-usage"></a>
 </h2>
 <p>You can load <code>microdiluteR</code> as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://silvia-eckert.github.io/microdiluteR/">microdiluteR</a></span><span class="op">)</span></span></code></pre></div>
 <p>Let’s try out the main function <code><a href="reference/tidy_plates.html">tidy_plates()</a></code> with example data:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">bma</span><span class="op">)</span></span>
 <span><span class="va">bma</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># file name is bma_grp1_exp2_T0</span></span>
 <span><span class="co">#&gt; $bma_grp1_exp2_T0</span></span>
@@ -116,7 +132,7 @@
 <span><span class="co">#&gt; G 0.334 0.340 0.357 0.332 0.329 0.342 0.333 0.317 0.360 0.332 0.335 0.328</span></span>
 <span><span class="co">#&gt; H 0.334 0.332 0.339 0.333 0.339 0.334 0.342 0.335 0.361 0.327 0.330 0.341</span></span></code></pre></div>
 <p>For the example data, the corresponding metadata is stored as an attribute:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">bma</span>, <span class="st">"metadata"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   plate_axis treatment concentration</span></span>
 <span><span class="co">#&gt; 1          A       10%       100 ppm</span></span>
@@ -128,7 +144,7 @@
 <span><span class="co">#&gt; 7          G   Control       100 ppm</span></span>
 <span><span class="co">#&gt; 8          H   Control       200 ppm</span></span></code></pre></div>
 <p>Let’s add the metadata and create a tidy data frame for further processing:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tidy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tidy_plates.html">tidy_plates</a></span><span class="op">(</span><span class="va">bma</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
 <span>                         how_many <span class="op">=</span> <span class="st">"single"</span>,</span>
 <span>                         direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
@@ -146,7 +162,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tidy_data</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tidy_data</span><span class="op">)</span> <span class="op">==</span> <span class="st">'Concentration'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">'Conc'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tidy_data</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">tidy_data</span><span class="op">)</span> <span class="op">==</span> <span class="st">'Timepoint'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">'TP'</span></span></code></pre></div>
 <p>This is the resulting table:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tidy_data</span></span>
 <span><span class="co">#&gt; # A tibble: 96 × 9</span></span>
 <span><span class="co">#&gt;    Pos     Val Validity Treat  Conc TP    File             Group   Experiment  </span></span>
@@ -162,6 +178,11 @@
 <span><span class="co">#&gt;  9 A-9   0.356 invalid  10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A</span></span>
 <span><span class="co">#&gt; 10 A-10  0.351 valid    10%     100 T0    bma_grp1_exp2_T0 Group 1 Experiment A</span></span>
 <span><span class="co">#&gt; # ℹ 86 more rows</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="issues-and-pull-requests">Issues and pull requests<a class="anchor" aria-label="anchor" href="#issues-and-pull-requests"></a>
+</h2>
+<p>If you find a <span class="emoji" data-emoji="beetle">🪲</span> in the code, feel free to write this in the <a href="https://github.com/silvia-eckert/microdiluteR/issues" class="external-link">Issues</a> section. If you want to contribute to this package or suggest a new feature, feel free to use the <a href="https://github.com/silvia-eckert/microdiluteR/issues" class="external-link">Pull Requests</a> section.</p>
 <hr>
 <p><span class="emoji" data-emoji="heart">❤️</span> Logo generated with <a href="https://github.com/GuangchuangYu/hexSticker" class="external-link">hexSticker</a></p>
 </div>
