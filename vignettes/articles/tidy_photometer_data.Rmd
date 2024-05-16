@@ -297,6 +297,20 @@ This vignette shows how to add metadata to photometer files in plain text format
 - Applying the sign test to assess whether growth performance significantly differs from the baseline (usually the control) using the `apply_sign_test()` function.
 - Visualize your results, with or without sign test results in asterisk notation, using the `plot_growth_performance()` function.
 
+## Citation
+Creating this package was a lot of work, and I made it available for free. If you use this package for your publication, be fair and cite it, e.g. using the following BibTeX entry:
+
+```{r citation, eval = FALSE}
+@Manual(
+  title    = {microdiluteR},
+  author   = {Silvia Eckert},
+  year     = {2024},
+  note     = {R package version 1.0.1, available from CRAN},
+  url      = {https://cran.r-project.org/package=microdiluteR}
+  doi      = {10.5281/zenodo.11186926}
+)
+```
+
 ## Acknowledgements
 
 The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the great [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
