@@ -56,8 +56,8 @@ Or you can cite as follows using the
 Eckert, S. (2024). microdiluteR (Version 1.0.1) [Software]. DOI: 10.5281/zenodo.11186926. Retrieved from: https://CRAN.R-project.org/package=microdiluteR
 ```
 
-Or use `citation("microdiluteR")` to retrieve citation information
-directly from the R package.
+Or use `citation("microdiluteR")` to retrieve citation information after
+installing the R package.
 
 ## :floppy_disk: Installation
 
