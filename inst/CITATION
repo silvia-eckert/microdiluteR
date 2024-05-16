@@ -1,5 +1,4 @@
 @Manual(
-  bibtype  = {Article},
   title    = {microdiluteR},
   author   = {Silvia Eckert},
   year     = {2024},

@@ -146,6 +146,14 @@ tidy_data
 #> # ℹ 86 more rows
 ```
 
+## Issues and pull requests
+
+If you find a :beetle: in the code, feel free to write this in the
+[Issues](https://github.com/silvia-eckert/microdiluteR/issues) section.
+If you want to contribute to this package or suggest a new feature, feel
+free to use the [Pull
+Requests](https://github.com/silvia-eckert/microdiluteR/issues) section.
+
 ------------------------------------------------------------------------
 
 :heart: Logo generated with
