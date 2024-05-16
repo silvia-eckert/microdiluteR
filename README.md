@@ -49,6 +49,16 @@ e.g. using the following `biblatex` entry:
 )
 ```
 
+Or you can cite as follows using the
+[APA](https://en.wikipedia.org/wiki/APA_style) citation style:
+
+``` r
+Eckert, S. (2024). microdiluteR (Version 1.0.1) [Software]. DOI: 10.5281/zenodo.11186926. Retrieved from: https://CRAN.R-project.org/package=microdiluteR
+```
+
+Or use `citation("microdiluteR")` to retrieve citation information
+directly from the R package.
+
 ## :floppy_disk: Installation
 
 You can install the CRAN version of `microdiluteR` with:

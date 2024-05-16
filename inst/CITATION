@@ -1,0 +1,10 @@
+bibentry(
+  bibtype  = "Misc",
+  title    = "microdiluteR",
+  author   = person("Eckert", "Silvia", role = c("aut", "cre")),
+  year     = "2024",
+  doi      = "10.5281/zenodo.11186926",
+  note     = "R package version 1.0.1, available from CRAN",
+  url      = "https://cran.r-project.org/package=microdiluteR",
+  key      = "eckert_microdiluteR_2024"
+)

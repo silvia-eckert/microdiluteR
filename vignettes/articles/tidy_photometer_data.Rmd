@@ -313,6 +313,14 @@ Creating this package was a lot of work, and I made it available for free. If yo
 )
 ```
 
+Or you can cite as follows using the [APA](https://en.wikipedia.org/wiki/APA_style) citation style:
+
+```{r apa, eval = FALSE}
+Eckert, S. (2024). microdiluteR (Version 1.0.1) [Software]. DOI: 10.5281/zenodo.11186926. Retrieved from: https://CRAN.R-project.org/package=microdiluteR
+```
+
+Or use `citation("microdiluteR")` to retrieve citation information directly from the R package.
+
 ## Acknowledgements
 
 The `microdiluteR`^[Development of this package on [GitHub](https://github.com/silvia-eckert/microdiluteR)] package would not be possible without the great [usethis](https://usethis.r-lib.org/index.html) and [testthat](https://testthat.r-lib.org/index.html) packages, and answers from the amazing [stackoverflow](https://stackoverflow.com/questions/tagged/r) community that has helped me to constantly improve my code (and save a lot of nerves, especially with [tidy evaluation](https://adv-r.hadley.nz/evaluation.html)).
