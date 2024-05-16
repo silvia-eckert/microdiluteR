@@ -34,12 +34,14 @@ A detailed tutorial can be found
 
 Creating this package was a lot of work, and I made it available for
 free. If you use this package for your publication, be fair and cite it,
-e.g. using the following BibTeX entry:
+e.g. using the following `biblatex` entry:
 
 ``` r
-@Manual(
+@software(eckert_micodiluteR_2024,
+  author   = {Eckert, Silvia},
   title    = {microdiluteR},
-  author   = {Silvia Eckert},
+  version = {1.0.1.},
+  date = {2024-05-13}
   year     = {2024},
   note     = {R package version 1.0.1, available from CRAN},
   url      = {https://cran.r-project.org/package=microdiluteR}

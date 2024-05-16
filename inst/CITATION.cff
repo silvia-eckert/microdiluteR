@@ -1,0 +1,11 @@
+cff-version: 1.0.1
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Eckert"
+  given-names: "Silvia"
+  orcid: "https://orcid.org/0000-0002-8896-1046"
+title: "microdiluteR"
+version: 1.0.1
+doi: 10.5281/zenodo.11186926
+date-released: 2024-05-13
+url: "https://cran.r-project.org/package=microdiluteR"

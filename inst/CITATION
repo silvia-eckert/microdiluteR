@@ -1,8 +1,0 @@
-@Manual(
-  title    = {microdiluteR},
-  author   = {Silvia Eckert},
-  year     = {2024},
-  note     = {R package version 1.0.1, available from CRAN},
-  url      = {https://cran.r-project.org/package=microdiluteR}
-  doi      = {10.5281/zenodo.11186926}
-)
