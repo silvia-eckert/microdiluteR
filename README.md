@@ -30,6 +30,23 @@ assays](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular
 A detailed tutorial can be found
 [here](https://silvia-eckert.github.io/microdiluteR/).
 
+## :bookmark_tabs: Citation
+
+Creating this package was a lot of work, and I made it available for
+free. If you use this package for your publication, be fair and cite it,
+e.g. using the following BibTeX entry:
+
+``` r
+@Manual(
+  title    = {microdiluteR},
+  author   = {Silvia Eckert},
+  year     = {2024},
+  note     = {R package version 1.0.1, available from CRAN},
+  url      = {https://cran.r-project.org/package=microdiluteR}
+  doi      = {10.5281/zenodo.11186926}
+)
+```
+
 ## :floppy_disk: Installation
 
 You can install the CRAN version of `microdiluteR` with:
