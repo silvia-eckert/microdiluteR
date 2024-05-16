@@ -149,8 +149,9 @@ plates.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"bma"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bma</span><span class="op">)</span> <span class="co"># check file names</span></span>
-<span><span class="co">#&gt; [1] "bma_grp1_exp2_T0" "bma_grp1_exp2_T3" "bma_grp2_exp1_T0" "bma_grp2_exp1_T3"</span></span>
-<span><span class="va">bma</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="co"># absorption values from first plate</span></span>
+<span><span class="co">#&gt; [1] "bma_grp1_exp2_T0" "bma_grp1_exp2_T3" "bma_grp2_exp1_T0" "bma_grp2_exp1_T3"</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">bma</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="co"># absorption values from first plate</span></span>
 <span><span class="co">#&gt;       1     2     3     4     5     6     7     8     9    10    11    12</span></span>
 <span><span class="co">#&gt; A 0.342 0.354 0.360 0.360 0.352 0.363 0.361 0.352 0.356 0.351 0.366 0.375</span></span>
 <span><span class="co">#&gt; B 0.362 0.391 0.375 0.363 0.383 0.366 0.380 0.378 0.339 0.387 0.377 0.362</span></span>
@@ -162,7 +163,7 @@ plates.</p>
 <span><span class="co">#&gt; H 0.334 0.332 0.339 0.333 0.339 0.334 0.342 0.335 0.361 0.327 0.330 0.341</span></span></code></pre></div>
 <p>The data also contains information on the experimental setup, which
 can be retrieved using an attribute:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">bma</span>, <span class="st">"metadata"</span><span class="op">)</span> <span class="co"># check out the experimental setup</span></span>
 <span><span class="co">#&gt;   plate_axis treatment concentration</span></span>
 <span><span class="co">#&gt; 1          A       10%       100 ppm</span></span>
@@ -180,7 +181,7 @@ control level), each being tested at two concentrations (100 ppm and 200
 ppm). In the next step, we will try to add this metadata to the
 absorption values measured. You can also get details of the experimental
 setup using the help page of the data set:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">bma</span> <span class="co"># check out details on the experimental setup</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="read-plates">Read plates<a class="anchor" aria-label="anchor" href="#read-plates"></a>
@@ -192,7 +193,7 @@ and the photometer data should only be loaded into R for inspection or
 for custom analyses, this can be achieved as with the
 <code><a href="../reference/read_plates.html">read_plate()</a></code> and <code><a href="../reference/read_plates.html">read_plates()</a></code> functions.
 Let’s first create a temporary mock file:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="st">"Line with additional information, e.g. wavelength</span></span>
 <span><span class="st"></span></span>
 <span><span class="st">   1  2  3  4  5  6  7  8  9 10 11 12</span></span>
@@ -208,7 +209,7 @@ Let’s first create a temporary mock file:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">file_path</span>, sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <p>Now we’ll read this file using <code><a href="../reference/read_plates.html">read_plate()</a></code> as
 follows:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">temp_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_plates.html">read_plate</a></span><span class="op">(</span><span class="va">file_path</span>,</span>
 <span>                        skip_lines <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># skip the first two lines</span></span>
 <span><span class="va">temp_file</span></span>
@@ -220,11 +221,13 @@ follows:</p>
 <span><span class="co">#&gt; E 49 50 51 52 53 54 55 56 57 58 59 60</span></span>
 <span><span class="co">#&gt; F 61 62 63 64 65 66 67 68 69 70 71 72</span></span>
 <span><span class="co">#&gt; G 73 74 75 76 77 78 79 80 81 82 83 84</span></span>
-<span><span class="co">#&gt; H 85 86 87 88 89 90 91 92 93 94 95 96</span></span>
-<span><span class="co"># The skipped lines are stored here</span></span>
+<span><span class="co">#&gt; H 85 86 87 88 89 90 91 92 93 94 95 96</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># The skipped lines are stored here</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">temp_file</span>, <span class="st">"info"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Line with additional information, e.g. wavelength"</span></span>
-<span><span class="co"># Remove the temporary file</span></span>
+<span><span class="co">#&gt; [1] "Line with additional information, e.g. wavelength"</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Remove the temporary file</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span></code></pre></div>
 <p>We could also do this with multiple files using the
 <code><a href="../reference/read_plates.html">read_plates()</a></code> function. The content of the files will be
@@ -233,7 +236,7 @@ e.g. with the <code><a href="../reference/tidy_plates.html">tidy_plates()</a></
 two temporary files. This time, however, we will use a custom pattern
 called “Assay_” to start the file names. This will make sure that only
 these two files are considered from the temporary directory.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># File 1</span></span>
 <span><span class="va">data_T0</span> <span class="op">&lt;-</span> <span class="st">"Line with additional information, e.g. wavelength</span></span>
 <span><span class="st"></span></span>
@@ -267,12 +270,12 @@ these two files are considered from the temporary directory.</p>
 <span><span class="va">file_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">file_path_T1</span><span class="op">)</span></span></code></pre></div>
 <p>Now we’ll apply the <code><a href="../reference/read_plates.html">read_plates()</a></code> function similarly to
 <code><a href="../reference/read_plates.html">read_plate()</a></code> as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">temp_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_plates.html">read_plates</a></span><span class="op">(</span><span class="va">file_dir</span>,</span>
 <span>                        pattern <span class="op">=</span> <span class="st">"Assay_T"</span>, <span class="co"># our custom pattern</span></span>
 <span>                        skip_lines <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># skip the first two lines</span></span>
 <span><span class="va">temp_files</span></span>
-<span><span class="co">#&gt; $Assay_T0_17d0228b6b48</span></span>
+<span><span class="co">#&gt; $Assay_T0_17c3146e933c</span></span>
 <span><span class="co">#&gt;    1  2  3  4  5  6  7  8  9 10 11 12</span></span>
 <span><span class="co">#&gt; A  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
 <span><span class="co">#&gt; B 13 14 15 16 17 18 19 20 21 22 23 24</span></span>
@@ -283,7 +286,7 @@ these two files are considered from the temporary directory.</p>
 <span><span class="co">#&gt; G 73 74 75 76 77 78 79 80 81 82 83 84</span></span>
 <span><span class="co">#&gt; H 85 86 87 88 89 90 91 92 93 94 95 96</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $Assay_T1_17d06b46741a</span></span>
+<span><span class="co">#&gt; $Assay_T1_17c366419f9a</span></span>
 <span><span class="co">#&gt;    1  2  3  4  5  6  7  8  9 10 11 12</span></span>
 <span><span class="co">#&gt; A  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
 <span><span class="co">#&gt; B 13 14 15 16 17 18 19 20 21 22 23 24</span></span>
@@ -296,9 +299,10 @@ these two files are considered from the temporary directory.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; attr(,"info")</span></span>
 <span><span class="co">#&gt;               File_name                                         Attribute</span></span>
-<span><span class="co">#&gt; 1 Assay_T0_17d0228b6b48 Line with additional information, e.g. wavelength</span></span>
-<span><span class="co">#&gt; 2 Assay_T1_17d06b46741a Line with additional information, e.g. wavelength</span></span>
-<span><span class="co"># Remove temporary files</span></span>
+<span><span class="co">#&gt; 1 Assay_T0_17c3146e933c Line with additional information, e.g. wavelength</span></span>
+<span><span class="co">#&gt; 2 Assay_T1_17c366419f9a Line with additional information, e.g. wavelength</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Remove temporary files</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">file_path_T0</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">file_path_T1</span><span class="op">)</span></span></code></pre></div>
 <p>These functions are purely for inspection or for custom use. To add
@@ -319,7 +323,7 @@ file name, a folder pointing to this file (given there are no other
 interfering files, or else use a pattern) or a list element that has
 already been read into R. Here, we will use the first data set from
 <code>bma</code> and apply the metadata provided in the attributes:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">single_plate_data</span> <span class="op">&lt;-</span> <span class="va">bma</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>; <span class="va">single_plate_data</span></span>
 <span><span class="co">#&gt; $bma_grp1_exp2_T0</span></span>
 <span><span class="co">#&gt;       1     2     3     4     5     6     7     8     9    10    11    12</span></span>
@@ -330,8 +334,9 @@ already been read into R. Here, we will use the first data set from
 <span><span class="co">#&gt; E 0.388 0.473 0.400 0.358 0.388 0.340 0.335 0.396 0.411 0.404 0.397 0.407</span></span>
 <span><span class="co">#&gt; F 0.456 0.465 0.469 0.469 0.462 0.468 0.455 0.477 0.487 0.488 0.498 0.471</span></span>
 <span><span class="co">#&gt; G 0.334 0.340 0.357 0.332 0.329 0.342 0.333 0.317 0.360 0.332 0.335 0.328</span></span>
-<span><span class="co">#&gt; H 0.334 0.332 0.339 0.333 0.339 0.334 0.342 0.335 0.361 0.327 0.330 0.341</span></span>
-<span><span class="va">tidy_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidy_plates.html">tidy_plates</a></span><span class="op">(</span><span class="va">single_plate_data</span>,</span>
+<span><span class="co">#&gt; H 0.334 0.332 0.339 0.333 0.339 0.334 0.342 0.335 0.361 0.327 0.330 0.341</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tidy_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidy_plates.html">tidy_plates</a></span><span class="op">(</span><span class="va">single_plate_data</span>,</span>
 <span>                       how_many <span class="op">=</span> <span class="st">"single"</span>, <span class="co"># tidy single plate</span></span>
 <span>                       direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
 <span>                       group_ID <span class="op">=</span> <span class="cn">NA</span>,</span>
@@ -345,7 +350,7 @@ experiment name. This was not necessary here, but we could update our
 code to denote e.g. the pathogen used as the test organism (here <a href="https://en.wikipedia.org/wiki/Botrytis_cinerea" class="external-link"><em>Botrytis
 cinerea</em></a>) in the group identifier or give the plate measurement
 an experiment name (e.g. “Assay 1”). Let’s do this:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tidy_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidy_plates.html">tidy_plates</a></span><span class="op">(</span><span class="va">single_plate_data</span>,</span>
 <span>                       how_many <span class="op">=</span> <span class="st">"single"</span>,</span>
 <span>                       direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
@@ -356,7 +361,7 @@ an experiment name (e.g. “Assay 1”). Let’s do this:</p>
 <span>                       treatment_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"10%"</span>, <span class="st">"30%"</span>, <span class="st">"100%"</span>, <span class="st">"Control"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>                       concentration_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">200</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The resulting tidy table looks as follows:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tidy_df</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -627,7 +632,7 @@ renaming strategy:</p>
 </table>
 <p>In our <code>bma</code> example data, we have the following file
 names:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bma</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "bma_grp1_exp2_T0" "bma_grp1_exp2_T3" "bma_grp2_exp1_T0" "bma_grp2_exp1_T3"</span></span></code></pre></div>
 <p>This means, we have two groups, and one experiment per group, but
@@ -647,7 +652,7 @@ multiple plates.</p>
 metadata and it depends on the preference of the user which option feels
 more convenient. Users are free to add metadata either by parameters or
 via user prompts. At first, we will use parameters to do so:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multiple_plates_data</span> <span class="op">&lt;-</span> <span class="va">bma</span></span>
 <span><span class="va">tidy_dfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidy_plates.html">tidy_plates</a></span><span class="op">(</span></span>
 <span>  <span class="va">multiple_plates_data</span>,</span>
@@ -661,7 +666,7 @@ via user prompts. At first, we will use parameters to do so:</p>
 <span>  concentration_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">200</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p>Let’s have a look at the resulting table:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tidy_dfs</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -812,7 +817,7 @@ cinerea</em> will be assigned to ‘Assay 2’.</p>
 <p>Another way to add metadata is to prompt the user. In this way, each
 part, from the group name to the concentration level, is queried in
 turn.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tidy_dfs_prompts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidy_plates.html">tidy_plates</a></span><span class="op">(</span></span>
 <span>  <span class="va">multiple_plates_data</span>,</span>
 <span>  how_many <span class="op">=</span> <span class="st">"multiple"</span>, <span class="co"># changed from "single"</span></span>
@@ -821,7 +826,7 @@ turn.</p>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p>After processing with user prompts, you can check if both options
 give the same result once the same settings are used as input:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">tidy_dfs</span>, <span class="va">tidy_dfs_prompts</span><span class="op">)</span> <span class="co"># should be TRUE</span></span></code></pre></div>
 </div>
 </div>
@@ -835,13 +840,13 @@ them in a common table for further processing? Don’t worry,
 <code><a href="../reference/tidy_plates.html">tidy_plates()</a></code> can handle that too. In that case, the user
 is prompted for the experimental setup as before but for every plate
 separately.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>tidy_dfs_individually <span class="ot">&lt;-</span> <span class="fu">tidy_plates</span>(</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>  multiple_plates_data,</span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>  <span class="at">how_many =</span> <span class="st">"multiple"</span>,</span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>  <span class="at">user_prompt =</span> T,</span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>  <span class="at">multiple_structures =</span> T <span class="co"># set to TRUE to handle plates individually</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>  <span class="at">direction =</span> <span class="st">"horizontal"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>tidy_dfs_individually <span class="ot">&lt;-</span> <span class="fu">tidy_plates</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>  multiple_plates_data,</span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>  <span class="at">how_many =</span> <span class="st">"multiple"</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>  <span class="at">user_prompt =</span> T,</span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>  <span class="at">multiple_structures =</span> T <span class="co"># set to TRUE to handle plates individually</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>  <span class="at">direction =</span> <span class="st">"horizontal"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -875,16 +880,21 @@ function.</li>
 <p>Creating this package was a lot of work, and I made it available for
 free. If you use this package for your publication, be fair and cite it,
 e.g. using the following <code>biblatex</code> entry:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="sc">@</span><span class="fu">software</span>(eckert_micodiluteR_2024,</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>  <span class="at">author   =</span> {Eckert, Silvia},</span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  <span class="at">title    =</span> {microdiluteR},</span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>  <span class="at">version =</span> {<span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">1.</span>},</span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>  <span class="at">date =</span> {<span class="dv">2024-05-13</span>}</span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>  <span class="at">year     =</span> {<span class="dv">2024</span>},</span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>  <span class="at">note     =</span> {R package version <span class="dv">1</span>.<span class="fl">0.1</span>, available from CRAN},</span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>  <span class="at">url      =</span> {https<span class="sc">:</span><span class="er">//</span>cran.r<span class="sc">-</span>project.org<span class="sc">/</span>package<span class="ot">=</span>microdiluteR}</span>
-<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>  <span class="at">doi      =</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.11186926</span>}</span>
-<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="sc">@</span><span class="fu">software</span>(eckert_micodiluteR_2024,</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>  <span class="at">author   =</span> {Eckert, Silvia},</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>  <span class="at">title    =</span> {microdiluteR},</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="at">version =</span> {<span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">1.</span>},</span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="at">date =</span> {<span class="dv">2024-05-13</span>}</span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>  <span class="at">year     =</span> {<span class="dv">2024</span>},</span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>  <span class="at">note     =</span> {R package version <span class="dv">1</span>.<span class="fl">0.1</span>, available from CRAN},</span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>  <span class="at">url      =</span> {https<span class="sc">:</span><span class="er">//</span>cran.r<span class="sc">-</span>project.org<span class="sc">/</span>package<span class="ot">=</span>microdiluteR}</span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a>  <span class="at">doi      =</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.11186926</span>}</span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>)</span></code></pre></div>
+<p>Or you can cite as follows using the <a href="https://en.wikipedia.org/wiki/APA_style" class="external-link">APA</a> citation
+style:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>Eckert, <span class="fu">S.</span> (<span class="dv">2024</span>). <span class="fu">microdiluteR</span> (Version <span class="dv">1</span>.<span class="fl">0.1</span>) [Software]. DOI<span class="sc">:</span> <span class="fl">10.5281</span><span class="sc">/</span>zenodo.<span class="fl">11186926.</span> Retrieved from<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>CRAN.R<span class="sc">-</span>project.org<span class="sc">/</span>package<span class="ot">=</span>microdiluteR</span></code></pre></div>
+<p>Or use <code>citation("microdiluteR")</code> to retrieve citation
+information directly from the R package.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
