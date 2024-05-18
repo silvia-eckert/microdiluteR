@@ -38,14 +38,14 @@ e.g. using the following `biblatex` entry:
 
 ``` r
 @software(eckert_micodiluteR_2024,
-  author   = {Eckert, Silvia},
-  title    = {microdiluteR},
+  author  = {Eckert, Silvia},
+  title   = {microdiluteR},
   version = {1.0.1.},
-  date = {2024-05-13}
-  year     = {2024},
-  note     = {R package version 1.0.1, available from CRAN},
-  url      = {https://cran.r-project.org/package=microdiluteR}
-  doi      = {10.5281/zenodo.11186926}
+  date    = {2024-05-13}
+  year    = {2024},
+  note    = {R package version 1.0.1, available from CRAN},
+  url     = {https://cran.r-project.org/package=microdiluteR}
+  doi     = {10.5281/zenodo.11186926}
 )
 ```
 
