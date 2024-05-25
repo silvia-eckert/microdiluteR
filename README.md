@@ -30,7 +30,7 @@ assays](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular
 A detailed tutorial can be found
 [here](https://silvia-eckert.github.io/microdiluteR/).
 
-## :bookmark_tabs: Citation
+## :pushpin: Citation
 
 Creating this package was a lot of work, and I made it available for
 free. If you use this package for your publication, be fair and cite it,
@@ -158,13 +158,18 @@ tidy_data
 #> # ℹ 86 more rows
 ```
 
-## Issues and pull requests
+## :hammer_and_wrench: Issues
 
 If you find a :beetle: in the code, feel free to write this in the
 [Issues](https://github.com/silvia-eckert/microdiluteR/issues) section.
 If you want to contribute to this package or suggest a new feature, feel
 free to use the [Pull
 Requests](https://github.com/silvia-eckert/microdiluteR/issues) section.
+
+## :scroll: License
+
+This repository and the files therein are licensed under the [GPL-3.0
+license](https://www.gnu.org/licenses/gpl-3.0.html.en).
 
 ------------------------------------------------------------------------
 
